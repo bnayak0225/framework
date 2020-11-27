@@ -114,7 +114,7 @@
     "react-dom": "^16.6.0"
   },
   "bin": {
-    "framework": "./dist/bin/framework-start"
+    "framework": "./bin/framework-start"
   },
   "devDependencies": {
 
