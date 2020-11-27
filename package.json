@@ -117,7 +117,7 @@
     "framework": "./bin/framework-start.js"
   },
   "files": [
-    "*", "**/*"
+    "*"
   ],
   "devDependencies": {
 
