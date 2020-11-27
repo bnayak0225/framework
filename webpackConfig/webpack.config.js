@@ -29,6 +29,7 @@ var TerserPlugin = require('terser-webpack-plugin');
 var ManifestPlugin = require('webpack-manifest-plugin');
 var mini_css_extract_plugin_1 = __importDefault(require("mini-css-extract-plugin"));
 var AssetsPlugin = require('assets-webpack-plugin');
+var Dotenv = require("dotenv-webpack");
 var config_1 = require("./config");
 var chunkSplit_1 = require("./Plugin/chunkSplit");
 var CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
@@ -107,6 +108,13 @@ var serverConfig = function (port, environment) {
             // new PagesManifestPlugin('server'),
             new import_1.default(),
             // new Html(),
+            new Dotenv({
+                path: "./.env",
+                safe: true,
+                systemvars: true,
+                silent: true,
+                defaults: false,
+            }),
             new webpack_1.default.DefinePlugin({
                 __SERVER__: 'true',
                 __BROWSER__: 'false',
@@ -182,6 +190,13 @@ var clientConfig = function (environment) {
             }),
             new nameChunk_1.default(),
             chunkSplit_1.ChunkSplit(customOptionList),
+            new Dotenv({
+                path: "./.env",
+                safe: true,
+                systemvars: true,
+                silent: true,
+                defaults: false,
+            }),
             new webpack_1.default.DefinePlugin({
                 __SERVER__: 'false',
                 __BROWSER__: 'true',
