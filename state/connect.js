@@ -17,7 +17,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Connect = void 0;
 var react_1 = __importDefault(require("react"));
 var store_1 = require("./store");
-var Connect = function (getState, storeState) {
+var Connect = function (getState, setState) {
     // let getState
     return function (WrappedComponent) {
         return function () {
@@ -25,7 +25,7 @@ var Connect = function (getState, storeState) {
             var state = Store.getState();
             var dispatch = Store.dispatch;
             var stateToProps = getState(state);
-            var statePush = storeState(dispatch);
+            var statePush = setState(dispatch);
             return (react_1.default.createElement(WrappedComponent, __assign({}, stateToProps, statePush, Store)));
         };
     };
