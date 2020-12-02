@@ -26,7 +26,7 @@ var Connect = function (getState, setState) {
             var dispatch = Store.dispatch;
             var stateToProps = getState(state);
             var statePush = setState(dispatch);
-            return (react_1.default.createElement(WrappedComponent, __assign({}, stateToProps, statePush, Store)));
+            return (react_1.default.createElement(WrappedComponent, __assign({}, stateToProps, { setState: statePush }, Store)));
         };
     };
 };
