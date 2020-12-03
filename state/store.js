@@ -5,8 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.store = void 0;
 var context_1 = __importDefault(require("./context"));
-exports.store = function () {
-    var state = context_1.default.state, dispatch = context_1.default.dispatch;
+var store = function () {
+    var _a = context_1.default._currentValue, state = _a.state, dispatch = _a.dispatch;
+    console.log(context_1.default._currentValue);
     var getState = function () {
         return state;
     };
@@ -15,3 +16,4 @@ exports.store = function () {
         dispatch: function (props) { return dispatch(props); }
     };
 };
+exports.store = store;
