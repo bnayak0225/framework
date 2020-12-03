@@ -72,10 +72,8 @@
     "postcss-url": "^9.0.0",
     "prop-types": "^15.7.2",
     "querystringify": "^2.1.1",
-    "react": "^16.0.0",
     "react-css-modules": "^4.7.11",
     "react-dev-utils": "^10.2.1",
-    "react-dom": "^16.0.0",
     "react-helmet": "^6.1.0",
     "react-hot-loader": "^4.12.21",
     "react-is": "16.13.1",
@@ -120,7 +118,8 @@
     "*"
   ],
   "devDependencies": {
-
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
   },
   "engines": {
     "node": ">=10.13.0"
