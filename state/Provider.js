@@ -31,11 +31,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-// import {useStateContext} from "./useStateContext"
-var context_1 = __importDefault(require("./context"));
+var useStateContext_1 = require("./useStateContext");
 function Provider(_a) {
     var initialState = _a.initialState, children = _a.children;
-    var Context = context_1.default;
+    var Context = useStateContext_1.useStateContext();
     // let state=initialState
     var _b = __read(react_1.default.useState(), 2), state = _b[0], setState = _b[1];
     var dispatch = function (props) {
