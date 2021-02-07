@@ -28,6 +28,6 @@ function Link(props) {
         }
     };
     return (react_1.default.createElement("span", __assign({}, props, { onClick: handleClick }),
-        react_1.default.createElement("a", { href: props.to, onclick: function (e) { return e.preventDefault(); } }, children)));
+        react_1.default.createElement("a", { href: props.to, onClick: function (e) { return e.preventDefault(); } }, children)));
 }
 exports.Link = Link;
