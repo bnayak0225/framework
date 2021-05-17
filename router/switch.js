@@ -41,7 +41,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var context_1 = require("./context");
 var validatePath_1 = __importDefault(require("./validatePath"));
-var Switch = function (_a) {
+var Switch = react_1.memo(function (_a) {
     var children = _a.children;
     var _b = __read(react_1.useState(), 2), component = _b[0], setComponent = _b[1];
     var routerContext = context_1.RouterContext;
@@ -58,5 +58,5 @@ var Switch = function (_a) {
         }
     }, [pathname]);
     return (react_1.default.createElement(react_1.default.Fragment, null, component));
-};
+});
 exports.default = Switch;

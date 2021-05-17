@@ -67,11 +67,10 @@ var RouterContextProvider = /** @class */ (function (_super) {
     };
     RouterContextProvider.prototype.render = function () {
         var _this = this;
-        // console.log({...this.context, push: (to) => push(to)});
         return (react_1.default.createElement(exports.RouterContext.Provider, { value: __assign(__assign({}, this.state), { push: function (to) { return _this.push(to); } }) }, this.props.children));
     };
     RouterContextProvider.contextType = exports.RouterContext;
     return RouterContextProvider;
-}(react_1.default.Component));
+}(react_1.default.PureComponent));
 // RouterContextProvider.contextType=RouterContext
 exports.default = RouterContextProvider;

@@ -58,5 +58,5 @@ var Router = /** @class */ (function (_super) {
         return (react_1.default.createElement(context_1.RouterContext.Provider, { value: routerContextValue }, is404 ? react_1.default.createElement(NotFound, null) : children));
     };
     return Router;
-}(react_1.default.Component));
+}(react_1.default.PureComponent));
 exports.Router = Router;

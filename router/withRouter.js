@@ -44,6 +44,6 @@ function withRouter(WrappedComponent) {
             return (react_1.default.createElement(context_1.RouterContext.Consumer, null, function (state) { return (react_1.default.createElement(WrappedComponent, __assign({}, _this.props, { location: __assign(__assign({}, _this.location), { push: state.push }) }))); }));
         };
         return class_1;
-    }(react_1.default.Component));
+    }(react_1.default.PureComponent));
 }
 exports.withRouter = withRouter;
