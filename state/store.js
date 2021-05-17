@@ -4,9 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.store = void 0;
-var react_1 = require("react");
 var context_1 = __importDefault(require("./context"));
-var store = react_1.memo(function () {
+var store = function () {
     var _a = context_1.default._currentValue, state = _a.state, dispatch = _a.dispatch;
     console.log(context_1.default._currentValue);
     var getState = function () {
@@ -16,5 +15,5 @@ var store = react_1.memo(function () {
         getState: function () { return getState(); },
         dispatch: function (props) { return dispatch(props); }
     };
-});
+};
 exports.store = store;
