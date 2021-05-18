@@ -85,7 +85,6 @@ function EventSourceWrapper() {
     function init() {
         source = new window.EventSource("http://localhost:" + options.port + "/" + options.path);
         // source.url=options.path
-        console.log(source);
         source.onopen = handleOnline;
         source.onerror = handleDisconnect;
         source.onmessage = handleMessage;

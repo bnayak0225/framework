@@ -39,7 +39,6 @@ var context_1 = require("./context");
 var validatePath_1 = __importDefault(require("./validatePath"));
 var Route = react_1.memo(function (_a) {
     var path = _a.path, component = _a.component, children = _a.children, props = _a.props;
-    console.log("hello", props);
     var error = false;
     if (path === undefined) {
         // throw new ValidationError('Router error: path is missing');
@@ -50,12 +49,11 @@ var Route = react_1.memo(function (_a) {
     var Component = component;
     var routerContext = context_1.RouterContext;
     var url = react_1.default.useContext(routerContext).pathname;
-    console.log(url);
-    var pathValidate = validatePath_1.default(path, url);
+    var callbackValidatePath = react_1.useCallback(function (pathname, url) { return function () { return validatePath_1.default(pathname, url); }; }, [url]);
+    var pathValidate = callbackValidatePath(path, url);
     if (!pathValidate) {
         return null;
     }
-    console.log(pathValidate);
     var childrenWithProps = react_1.default.Children.map(children, function (child) {
         // checking isValidElement is the safe way and avoids a typescript error too
         if (react_1.default.isValidElement(child)) {
@@ -68,16 +66,3 @@ var Route = react_1.memo(function (_a) {
         " "));
 });
 exports.Route = Route;
-Route.propTypes = {
-    path: function (props, propName, componentName) {
-        if (!props[propName]) {
-            // console.log(new Error(propName + ' is missing ' + componentName + '.'));
-            // try {
-            // }
-            // catch(error){
-            //     console.log(error);
-            //     ErrorBoundary.throwError(error)
-            // }
-        }
-    }
-};

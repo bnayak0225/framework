@@ -10,6 +10,25 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __read = (this && this.__read) || function (o, n) {
     var m = typeof Symbol === "function" && o[Symbol.iterator];
     if (!m) return o;
@@ -30,20 +49,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(require("react"));
+var react_1 = __importStar(require("react"));
 var context_1 = __importDefault(require("./context"));
-function Provider(_a) {
+var allowStateUpdate_1 = __importDefault(require("../lib/allowStateUpdate"));
+var Provider = react_1.memo(function (_a) {
     var initialState = _a.initialState, children = _a.children;
     var Context = context_1.default;
     // let state=initialState
-    var _b = __read(react_1.default.useState(), 2), state = _b[0], setState = _b[1];
+    var _b = __read(react_1.default.useState({}), 2), state = _b[0], setState = _b[1];
     var dispatch = function (props) {
         var key = Object.keys(props);
-        setState(function (prevState) {
-            var _a;
-            return (__assign(__assign({}, prevState), (_a = {}, _a[key] = props[key], _a)));
-        });
+        if (!state[key] || allowStateUpdate_1.default(state[key], props[key]))
+            setState(function (prevState) {
+                var _a;
+                return (__assign(__assign({}, prevState), (_a = {}, _a[key] = props[key], _a)));
+            });
     };
     return (react_1.default.createElement(Context.Provider, { value: { state: __assign(__assign({}, initialState), state), dispatch: function (props) { return dispatch(props); } } }, children));
-}
+});
 exports.default = Provider;

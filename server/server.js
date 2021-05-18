@@ -126,7 +126,6 @@ var ignoreFavicon = function (req, res, next) {
                             case 3:
                                 try {
                                     routeData_1 = require('dirPage/route.json');
-                                    console.log(routeData_1);
                                     Object.keys(routeData_1).forEach(function (route, i) {
                                         if (!route) {
                                             console.log("Route url is missing");

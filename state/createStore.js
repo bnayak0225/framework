@@ -10,7 +10,6 @@ var useStateContext_1 = require("./useStateContext");
 function createStore(context) {
     if (context === void 0) { context = context_1.default; }
     var useStoreContext = context === context_1.default ? useStateContext_1.useStateContext : function () { return react_1.useContext(context); };
-    console.log(useStoreContext);
     return function useStore() {
         var store = useStoreContext().store;
         return store;

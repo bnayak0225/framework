@@ -107,11 +107,9 @@ var renderHtml = function (component, SplashScreenComponent, routing, page, asse
         switch (_c.label) {
             case 0:
                 appHtml = server_1.renderToString(react_1.default.createElement(main_1.default, { page: component }));
-                console.log(SplashScreenComponent);
                 if (SplashScreenComponent) {
                     splashScreen = server_1.renderToString(react_1.default.createElement(SplashScreenComponent, null));
                 }
-                console.log(assets.getJavascripts());
                 headTag = Head_1.ClientToServer.getState();
                 jsArray = assets.getJavascripts();
                 cssArray = assets.getStylesheetSources();

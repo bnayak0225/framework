@@ -45,18 +45,19 @@ var Switch = react_1.memo(function (_a) {
     var children = _a.children;
     var _b = __read(react_1.useState(), 2), component = _b[0], setComponent = _b[1];
     var routerContext = context_1.RouterContext;
-    var pathname = react_1.default.useContext(routerContext).pathname;
+    var url = react_1.default.useContext(routerContext).pathname;
+    var callbackValidatePath = react_1.useCallback(function (pathname, url) { return function () { return validatePath_1.default(pathname, url); }; }, [url]);
     react_1.useEffect(function () {
         for (var i = 0; i < children.length; i++) {
             if (children[i].props && children[i].props.path) {
-                var pathValidate = validatePath_1.default(children[i].props.path, pathname);
+                var pathValidate = callbackValidatePath(children[i].props.path, url);
                 if (pathValidate) {
                     setComponent(children[i]);
                     break;
                 }
             }
         }
-    }, [pathname]);
+    }, [url]);
     return (react_1.default.createElement(react_1.default.Fragment, null, component));
 });
 exports.default = Switch;

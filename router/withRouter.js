@@ -35,8 +35,7 @@ function withRouter(WrappedComponent) {
         __extends(class_1, _super);
         function class_1(props) {
             var _this = _super.call(this, props) || this;
-            // location = window.location
-            _this.location = __assign({}, window.location);
+            _this.location = window.location;
             return _this;
         }
         class_1.prototype.render = function () {

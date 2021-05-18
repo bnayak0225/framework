@@ -90,9 +90,6 @@ var App = /** @class */ (function (_super) {
         // error['shouldIgnore'] = true;
         return { hasError: true, error: error };
     };
-    // componentDidCatch(error, errorInfo){
-    //     console.log(error);
-    // }
     App.prototype.render = function () {
         var _a = this.state, hasError = _a.hasError, error = _a.error;
         if (hasError) {
@@ -106,7 +103,7 @@ var App = /** @class */ (function (_super) {
                     }))))));
     };
     return App;
-}(react_1.default.Component));
+}(react_1.default.PureComponent));
 ;
 // App = hot(module)(App)
 var doRender = function (routing) { return __awaiter(void 0, void 0, void 0, function () {
@@ -120,11 +117,9 @@ var doRender = function (routing) { return __awaiter(void 0, void 0, void 0, fun
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                console.log(window.client);
                 if (window.client === true) {
                     document.onreadystatechange = function () {
                         if (document.readyState === "complete") {
-                            console.log("splash");
                             document.getElementById("slash-screen").style.display = "none";
                         }
                     };
