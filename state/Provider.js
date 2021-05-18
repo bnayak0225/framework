@@ -80,12 +80,10 @@ var Provider = react_1.memo(function (_a) {
     };
     var dispatch = function (props) {
         var key = Object.keys(props);
-        if (!state[key]) {
-            setState(function (prevState) {
-                var _a;
-                return (__assign(__assign({}, prevState), (_a = {}, _a[key] = props[key], _a)));
-            });
-        }
+        setState(function (prevState) {
+            var _a;
+            return (__assign(__assign({}, prevState), (_a = {}, _a[key] = props[key], _a)));
+        });
     };
     return (react_1["default"].createElement(Context.Provider, { value: { state: __assign(__assign({}, initialState), state), dispatch: function (props) { return dispatch(props); } } }, children));
 });
