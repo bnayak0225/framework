@@ -18,7 +18,7 @@ var styles = {
     bottom: 0,
     overflow: 'auto',
     dir: 'ltr',
-    textAlign: 'left',
+    textAlign: 'left'
 };
 var ansiHTML = require('ansi-html');
 var colors = {
@@ -31,7 +31,7 @@ var colors = {
     magenta: 'f840b7',
     cyan: '0ad8e9',
     lightgrey: 'ebe7e3',
-    darkgrey: '6d7891',
+    darkgrey: '6d7891'
 };
 var Entities = require('html-entities').AllHtmlEntities;
 var entities = new Entities();
@@ -56,7 +56,7 @@ function clear() {
 function problemType(type) {
     var problemColors = {
         errors: colors.red,
-        warnings: colors.yellow,
+        warnings: colors.yellow
     };
     var color = problemColors[type] || colors.red;
     return ('<span style="background-color:#' +
@@ -80,8 +80,9 @@ module.exports = function (options) {
     }
     return {
         showProblems: showProblems,
-        clear: clear,
+        clear: clear
     };
 };
 module.exports.clear = clear;
 module.exports.showProblems = showProblems;
+//# sourceMappingURL=client-overlay.js.map

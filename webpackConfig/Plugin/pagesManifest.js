@@ -10,7 +10,7 @@ var __values = (this && this.__values) || function(o) {
     };
     throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var webpack_sources_1 = require("webpack-sources");
 var PagesManifestPlugin = /** @class */ (function () {
     function PagesManifestPlugin(type) {
@@ -35,7 +35,7 @@ var PagesManifestPlugin = /** @class */ (function () {
             catch (e_1_1) { e_1 = { error: e_1_1 }; }
             finally {
                 try {
-                    if (chunks_1_1 && !chunks_1_1.done && (_a = chunks_1.return)) _a.call(chunks_1);
+                    if (chunks_1_1 && !chunks_1_1.done && (_a = chunks_1["return"])) _a.call(chunks_1);
                 }
                 finally { if (e_1) throw e_1.error; }
             }
@@ -44,4 +44,5 @@ var PagesManifestPlugin = /** @class */ (function () {
     };
     return PagesManifestPlugin;
 }());
-exports.default = PagesManifestPlugin;
+exports["default"] = PagesManifestPlugin;
+//# sourceMappingURL=pagesManifest.js.map

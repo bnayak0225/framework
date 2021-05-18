@@ -45,7 +45,7 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.RouterContext = void 0;
 var react_1 = __importStar(require("react"));
 var history_1 = require("./history");
@@ -54,7 +54,7 @@ var push = function (to) {
     history_1.history.push(to);
     pathname = to;
 };
-exports.RouterContext = react_1.default.createContext({ pathname: pathname, push: function (to) { return push(to); } });
+exports.RouterContext = react_1["default"].createContext({ pathname: pathname, push: function (to) { return push(to); } });
 var RouterContextProvider = react_1.memo(function (props) {
     var _a = __read(react_1.useState({ pathname: window.location.pathname }), 2), state = _a[0], setState = _a[1];
     var push = function (to) {
@@ -75,6 +75,7 @@ var RouterContextProvider = react_1.memo(function (props) {
             window.removeEventListener('popstate', setPath);
         };
     }, []);
-    return (react_1.default.createElement(exports.RouterContext.Provider, { value: __assign(__assign({}, state), { push: function (to) { return push(to); } }) }, props.children));
+    return (react_1["default"].createElement(exports.RouterContext.Provider, { value: __assign(__assign({}, state), { push: function (to) { return push(to); } }) }, props.children));
 });
-exports.default = RouterContextProvider;
+exports["default"] = RouterContextProvider;
+//# sourceMappingURL=context.js.map

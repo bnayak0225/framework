@@ -49,7 +49,7 @@ var __values = (this && this.__values) || function(o) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.renderHtml = void 0;
 var react_1 = __importDefault(require("react"));
 var server_1 = require("react-dom/server");
@@ -71,7 +71,7 @@ var HeadHtml = function (headerData, routing, cssFileArray, host) {
     catch (e_1_1) { e_1 = { error: e_1_1 }; }
     finally {
         try {
-            if (cssFileArray_1_1 && !cssFileArray_1_1.done && (_a = cssFileArray_1.return)) _a.call(cssFileArray_1);
+            if (cssFileArray_1_1 && !cssFileArray_1_1.done && (_a = cssFileArray_1["return"])) _a.call(cssFileArray_1);
         }
         finally { if (e_1) throw e_1.error; }
     }
@@ -88,15 +88,15 @@ var HtmlContainer = function (appHtml, splasHtml, headerData, routing, page, jsA
         var headHtml;
         return __generator(this, function (_a) {
             headHtml = HeadHtml(headerData, routing, cssArray, host);
-            return [2 /*return*/, (react_1.default.createElement(react_1.default.Fragment, null,
-                    react_1.default.createElement("html", null,
-                        react_1.default.createElement("head", { dangerouslySetInnerHTML: { __html: headHtml } }),
-                        react_1.default.createElement("body", null,
-                            react_1.default.createElement("div", { id: "slash-screen", dangerouslySetInnerHTML: { __html: splasHtml } }),
-                            react_1.default.createElement("div", { id: "app", dangerouslySetInnerHTML: { __html: appHtml } }),
-                            react_1.default.createElement("script", null),
+            return [2 /*return*/, (react_1["default"].createElement(react_1["default"].Fragment, null,
+                    react_1["default"].createElement("html", null,
+                        react_1["default"].createElement("head", { dangerouslySetInnerHTML: { __html: headHtml } }),
+                        react_1["default"].createElement("body", null,
+                            react_1["default"].createElement("div", { id: "slash-screen", dangerouslySetInnerHTML: { __html: splasHtml } }),
+                            react_1["default"].createElement("div", { id: "app", dangerouslySetInnerHTML: { __html: appHtml } }),
+                            react_1["default"].createElement("script", null),
                             jsArray.map(function (file, i) {
-                                return (react_1.default.createElement("script", { key: i, src: host + "/" + file.replace("/client/", "") }));
+                                return (react_1["default"].createElement("script", { key: i, src: host + "/" + file.replace("/client/", "") }));
                             })))))];
         });
     });
@@ -106,9 +106,9 @@ var renderHtml = function (component, SplashScreenComponent, routing, page, asse
     return __generator(this, function (_c) {
         switch (_c.label) {
             case 0:
-                appHtml = server_1.renderToString(react_1.default.createElement(main_1.default, { page: component }));
+                appHtml = server_1.renderToString(react_1["default"].createElement(main_1["default"], { page: component }));
                 if (SplashScreenComponent) {
-                    splashScreen = server_1.renderToString(react_1.default.createElement(SplashScreenComponent, null));
+                    splashScreen = server_1.renderToString(react_1["default"].createElement(SplashScreenComponent, null));
                 }
                 headTag = Head_1.ClientToServer.getState();
                 jsArray = assets.getJavascripts();
@@ -121,3 +121,4 @@ var renderHtml = function (component, SplashScreenComponent, routing, page, asse
     });
 }); };
 exports.renderHtml = renderHtml;
+//# sourceMappingURL=render.js.map

@@ -50,7 +50,7 @@ var __read = (this && this.__read) || function (o, n) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var react_1 = __importStar(require("react"));
 var errorParser_1 = __importDefault(require("./errorParser"));
 var http = require('http');
@@ -70,23 +70,23 @@ var ErrorOverlay = /** @class */ (function (_super) {
     };
     ErrorOverlay.prototype.render = function () {
         var error = this.props.error;
-        return (react_1.default.createElement("div", { style: style.overlay },
-            react_1.default.createElement("div", null,
-                react_1.default.createElement("h4", { style: style.overlay_h4 },
-                    react_1.default.createElement("span", { style: style.errorType }, error.name),
+        return (react_1["default"].createElement("div", { style: style.overlay },
+            react_1["default"].createElement("div", null,
+                react_1["default"].createElement("h4", { style: style.overlay_h4 },
+                    react_1["default"].createElement("span", { style: style.errorType }, error.name),
                     " in ",
-                    react_1.default.createElement("span", { style: style.errorFileName }, error.fileName),
+                    react_1["default"].createElement("span", { style: style.errorFileName }, error.fileName),
                     " at line ",
                     error.line,
                     ":",
                     error.column),
-                react_1.default.createElement("h5", { style: style.overlay_h5 }, error.message)),
-            react_1.default.createElement("div", { id: "code-overlay" }),
-            react_1.default.createElement("div", { style: style.stack },
-                react_1.default.createElement("pre", null, error.stack))));
+                react_1["default"].createElement("h5", { style: style.overlay_h5 }, error.message)),
+            react_1["default"].createElement("div", { id: "code-overlay" }),
+            react_1["default"].createElement("div", { style: style.stack },
+                react_1["default"].createElement("pre", null, error.stack))));
     };
     return ErrorOverlay;
-}(react_1.default.Component));
+}(react_1["default"].Component));
 function readTextFile(file) {
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, true);
@@ -111,7 +111,7 @@ var ErrorBoundary = react_1.memo(function (_a) {
         html: ""
     }), 2), errorDetail = _b[0], setErrorDetail = _b[1];
     react_1.useEffect(function () {
-        errorParser_1.default(error).then(function (parsedError) {
+        errorParser_1["default"](error).then(function (parsedError) {
             console.log(error.name, error.message);
             var firstLine = parsedError[0].match(/(?:webpack:\/\/)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm);
             firstLine = firstLine[0].split("webpack:///")[1].split(":");
@@ -124,8 +124,8 @@ var ErrorBoundary = react_1.memo(function (_a) {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*',
-                },
+                    'Access-Control-Allow-Origin': '*'
+                }
             }).then(function (response) {
                 return response.text();
             }).then(function (html) {
@@ -150,8 +150,8 @@ var ErrorBoundary = react_1.memo(function (_a) {
             });
         });
     }, [error]);
-    return (react_1.default.createElement("div", { style: style.container },
-        react_1.default.createElement(ErrorOverlay, { error: errorDetail, errorName: true })));
+    return (react_1["default"].createElement("div", { style: style.container },
+        react_1["default"].createElement(ErrorOverlay, { error: errorDetail, errorName: true })));
 });
 var style = {
     container: {
@@ -179,7 +179,7 @@ var style = {
         fontSize: "18px",
         margin: "5px 0 10px",
         color: "#e57526",
-        fontWeight: 500,
+        fontWeight: 500
     },
     errorType: {
         color: "red"
@@ -188,4 +188,5 @@ var style = {
         color: "#187cb6"
     }
 };
-exports.default = ErrorBoundary;
+exports["default"] = ErrorBoundary;
+//# sourceMappingURL=errorBoundary.js.map

@@ -26,7 +26,7 @@ var __values = (this && this.__values) || function(o) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.ClientToServer = void 0;
 var react_1 = __importDefault(require("react"));
 var clientToSserver_1 = __importDefault(require("./clientToSserver"));
@@ -42,7 +42,7 @@ var HeadTag = /** @class */ (function (_super) {
         return null;
     };
     return HeadTag;
-}(react_1.default.PureComponent));
+}(react_1["default"].PureComponent));
 var removeElement = function () {
     var e_1, _a;
     var elements = document.querySelectorAll('[head-tag="true"]');
@@ -55,7 +55,7 @@ var removeElement = function () {
     catch (e_1_1) { e_1 = { error: e_1_1 }; }
     finally {
         try {
-            if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            if (_c && !_c.done && (_a = _b["return"])) _a.call(_b);
         }
         finally { if (e_1) throw e_1.error; }
     }
@@ -98,7 +98,7 @@ var getTagArray = function (props) {
                     catch (e_3_1) { e_3 = { error: e_3_1 }; }
                     finally {
                         try {
-                            if (attributeNameArray_1_1 && !attributeNameArray_1_1.done && (_b = attributeNameArray_1.return)) _b.call(attributeNameArray_1);
+                            if (attributeNameArray_1_1 && !attributeNameArray_1_1.done && (_b = attributeNameArray_1["return"])) _b.call(attributeNameArray_1);
                         }
                         finally { if (e_3) throw e_3.error; }
                     }
@@ -110,7 +110,7 @@ var getTagArray = function (props) {
     catch (e_2_1) { e_2 = { error: e_2_1 }; }
     finally {
         try {
-            if (tags_1_1 && !tags_1_1.done && (_a = tags_1.return)) _a.call(tags_1);
+            if (tags_1_1 && !tags_1_1.done && (_a = tags_1["return"])) _a.call(tags_1);
         }
         finally { if (e_2) throw e_2.error; }
     }
@@ -127,5 +127,6 @@ var propsToState = function (props) {
     element.appendChild(fragment);
     return element.innerHTML.toString();
 };
-var ClientToServer = (clientToSserver_1.default(propsToState, stateOnChange)(HeadTag));
+var ClientToServer = (clientToSserver_1["default"](propsToState, stateOnChange)(HeadTag));
 exports.ClientToServer = ClientToServer;
+//# sourceMappingURL=Head.js.map

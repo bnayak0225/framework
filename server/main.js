@@ -18,7 +18,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var React = __importStar(require("react"));
 var reactState_1 = require("../state/reactState");
 var AppServer = function (_a) {
@@ -27,4 +27,5 @@ var AppServer = function (_a) {
     return (React.createElement(reactState_1.Provider, null,
         React.createElement(Page, null)));
 };
-exports.default = AppServer;
+exports["default"] = AppServer;
+//# sourceMappingURL=main.js.map

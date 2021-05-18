@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var validatePath = function (path, url) {
     var _a;
     var pathname = path;
@@ -47,4 +47,5 @@ var validatePath = function (path, url) {
     }
     return prop;
 };
-exports.default = validatePath;
+exports["default"] = validatePath;
+//# sourceMappingURL=validatePath.js.map

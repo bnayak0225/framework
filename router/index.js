@@ -15,16 +15,16 @@ var __extends = (this && this.__extends) || (function () {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.withRouter = exports.Link = exports.Router = exports.RouterContext = void 0;
 var react_1 = __importDefault(require("react"));
 var utils_1 = require("./utils");
 var context_1 = require("./context");
-Object.defineProperty(exports, "RouterContext", { enumerable: true, get: function () { return context_1.RouterContext; } });
+exports.RouterContext = context_1.RouterContext;
 var link_1 = require("./link");
-Object.defineProperty(exports, "Link", { enumerable: true, get: function () { return link_1.Link; } });
+exports.Link = link_1.Link;
 var withRouter_1 = require("./withRouter");
-Object.defineProperty(exports, "withRouter", { enumerable: true, get: function () { return withRouter_1.withRouter; } });
+exports.withRouter = withRouter_1.withRouter;
 var Router = /** @class */ (function (_super) {
     __extends(Router, _super);
     function Router(props) {
@@ -39,7 +39,7 @@ var Router = /** @class */ (function (_super) {
         _this.unlisten = history.listen(_this.handleRouteChange);
         // Define the initial RouterContext value
         _this.state = {
-            route: utils_1.locationToRoute(history.location),
+            route: utils_1.locationToRoute(history.location)
         };
         return _this;
     }
@@ -55,8 +55,9 @@ var Router = /** @class */ (function (_super) {
         var routerContextValue = { route: route };
         // Check if 404 if no route matched
         var is404 = this.routes.indexOf(route.path) === -1;
-        return (react_1.default.createElement(context_1.RouterContext.Provider, { value: routerContextValue }, is404 ? react_1.default.createElement(NotFound, null) : children));
+        return (react_1["default"].createElement(context_1.RouterContext.Provider, { value: routerContextValue }, is404 ? react_1["default"].createElement(NotFound, null) : children));
     };
     return Router;
-}(react_1.default.PureComponent));
+}(react_1["default"].PureComponent));
 exports.Router = Router;
+//# sourceMappingURL=index.js.map

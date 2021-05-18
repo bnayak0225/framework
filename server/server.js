@@ -38,7 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var dynamicImport_1 = __importDefault(require("../lib/dynamicImport"));
 var constant_1 = require("../lib/constant");
 var express = require('express');
@@ -74,15 +74,14 @@ var ignoreFavicon = function (req, res, next) {
             case 0:
                 app = express();
                 importComponent = [];
-                return [4 /*yield*/, findPage_1.default()];
+                return [4 /*yield*/, findPage_1["default"]()];
             case 1:
                 pages = _a.sent();
                 page = [];
                 return [4 /*yield*/, Promise.all(importComponent)
                         .then(function (results) {
                         page = results;
-                    })
-                        .catch(function (e) {
+                    })["catch"](function (e) {
                         // Handle errors here
                     })];
             case 2:
@@ -93,12 +92,12 @@ var ignoreFavicon = function (req, res, next) {
                     global.document = dom.window.document;
                     global.navigator = dom.window.navigator;
                 }
-                app.use(cors_1.default());
-                app.use(body_parser_1.default.json());
-                app.use(body_parser_1.default.urlencoded({ extended: true }));
-                appDirectory = fs_1.default.realpathSync(process.cwd());
-                app.use(express_manifest_helpers_1.default({
-                    manifestPath: path_1.default.resolve(appDirectory, 'build/assets/manifest.json'),
+                app.use(cors_1["default"]());
+                app.use(body_parser_1["default"].json());
+                app.use(body_parser_1["default"].urlencoded({ extended: true }));
+                appDirectory = fs_1["default"].realpathSync(process.cwd());
+                app.use(express_manifest_helpers_1["default"]({
+                    manifestPath: path_1["default"].resolve(appDirectory, 'build/assets/manifest.json')
                 }));
                 app.use("/", express.static('build/assets'));
                 app.use("/", express.static('build/client'));
@@ -113,10 +112,10 @@ var ignoreFavicon = function (req, res, next) {
                                 routing = [];
                                 host = req.protocol + "://" + req.hostname + ":" + port;
                                 assets = res.locals;
-                                splashScreen = fs_1.default.readdirSync(path_1.default.resolve(process.cwd() + '/src/splash'));
+                                splashScreen = fs_1["default"].readdirSync(path_1["default"].resolve(process.cwd() + '/src/splash'));
                                 if (!splashScreen) return [3 /*break*/, 3];
-                                if (!fs_1.default.existsSync(path_1.default.resolve(process.cwd() + '/src/splash/index.js'))) return [3 /*break*/, 2];
-                                return [4 /*yield*/, dynamicImport_1.default("index.js", "splash")];
+                                if (!fs_1["default"].existsSync(path_1["default"].resolve(process.cwd() + '/src/splash/index.js'))) return [3 /*break*/, 2];
+                                return [4 /*yield*/, dynamicImport_1["default"]("index.js", "splash")];
                             case 1:
                                 splashScreenComponent = _a.sent();
                                 return [3 /*break*/, 3];
@@ -144,17 +143,17 @@ var ignoreFavicon = function (req, res, next) {
                                 }
                                 page = "";
                                 routing.map(function (path, i) {
-                                    if (validatePath_1.default(path.url, req.url)) {
+                                    if (validatePath_1["default"](path.url, req.url)) {
                                         page = path.file;
                                     }
                                 });
                                 if (!!page) return [3 /*break*/, 4];
-                                component = _404_1.default;
+                                component = _404_1["default"];
                                 return [3 /*break*/, 7];
                             case 4:
-                                fileList = fs_1.default.readdirSync(path_1.default.resolve(process.cwd() + '/src/pages'));
+                                fileList = fs_1["default"].readdirSync(path_1["default"].resolve(process.cwd() + '/src/pages'));
                                 if (!(fileList.indexOf(page) !== -1)) return [3 /*break*/, 6];
-                                return [4 /*yield*/, dynamicImport_1.default(page)];
+                                return [4 /*yield*/, dynamicImport_1["default"](page)];
                             case 5:
                                 component = _a.sent();
                                 return [3 /*break*/, 7];
@@ -167,9 +166,10 @@ var ignoreFavicon = function (req, res, next) {
                         }
                     });
                 }); });
-                app.use(errorHandle_1.default);
+                app.use(errorHandle_1["default"]);
                 app.listen(port, function () { return console.log("Example app listening at http://localhost:" + port); });
                 return [2 /*return*/];
         }
     });
 }); })();
+//# sourceMappingURL=server.js.map

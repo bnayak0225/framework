@@ -38,7 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var path_1 = __importDefault(require("path"));
 var fs_1 = __importDefault(require("fs"));
 var getPage = function (value) {
@@ -48,9 +48,9 @@ var getPage = function (value) {
 };
 var findPage = function () {
     return new Promise(function (resolve) {
-        var pagesPath = path_1.default.join(process.cwd(), 'src/pages');
+        var pagesPath = path_1["default"].join(process.cwd(), 'src/pages');
         var promises = [];
-        fs_1.default.readdir && fs_1.default.readdir(pagesPath, function (err, files) {
+        fs_1["default"].readdir && fs_1["default"].readdir(pagesPath, function (err, files) {
             if (err) {
                 console.log('Error getting directory information.');
             }
@@ -58,7 +58,7 @@ var findPage = function () {
                 files.forEach(function (file) {
                     return __awaiter(this, void 0, void 0, function () {
                         return __generator(this, function (_a) {
-                            if (!fs_1.default.statSync(path_1.default.join(pagesPath, file)).isDirectory()) {
+                            if (!fs_1["default"].statSync(path_1["default"].join(pagesPath, file)).isDirectory()) {
                                 promises.push(getPage(file));
                             }
                             return [2 /*return*/];
@@ -69,11 +69,11 @@ var findPage = function () {
             Promise.all(promises)
                 .then(function (results) {
                 resolve(results);
-            })
-                .catch(function (e) {
+            })["catch"](function (e) {
                 // Handle errors here
             });
         });
     });
 };
-exports.default = findPage;
+exports["default"] = findPage;
+//# sourceMappingURL=findPage.js.map

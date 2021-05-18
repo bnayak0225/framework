@@ -29,7 +29,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.Connect = void 0;
 var react_1 = __importStar(require("react"));
 var useStateContext_1 = require("./useStateContext");
@@ -53,8 +53,9 @@ var Connect = function (getState, setState) {
             var dispatch = Store.dispatch;
             var stateToProps = getState(state);
             var statePush = setState(dispatch);
-            return (react_1.default.createElement(WrappedComponent, __assign({}, stateToProps, statePush, props, Store)));
+            return (react_1["default"].createElement(WrappedComponent, __assign({}, stateToProps, statePush, props, Store)));
         });
     };
 };
 exports.Connect = Connect;
+//# sourceMappingURL=connect.js.map

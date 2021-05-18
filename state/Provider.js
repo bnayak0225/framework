@@ -48,23 +48,46 @@ var __read = (this && this.__read) || function (o, n) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var react_1 = __importStar(require("react"));
 var context_1 = __importDefault(require("./context"));
-var allowStateUpdate_1 = __importDefault(require("../lib/allowStateUpdate"));
 var Provider = react_1.memo(function (_a) {
     var initialState = _a.initialState, children = _a.children;
-    var Context = context_1.default;
+    var Context = context_1["default"];
     // let state=initialState
-    var _b = __read(react_1.default.useState({}), 2), state = _b[0], setState = _b[1];
+    var _b = __read(react_1["default"].useState({}), 2), state = _b[0], setState = _b[1];
+    var allowStateUpdate = function (objectValue1, objectValue2) {
+        // console.log(typeof objectValue1);
+        // if (typeof objectValue1 === typeof objectValue2){
+        //     if(
+        //         (typeof objectValue1 === "undefined"
+        //             || typeof objectValue1 === "boolean"
+        //             || typeof objectValue1 === "number"
+        //             || typeof objectValue1 === "string"
+        //             || typeof objectValue1 === "bigint"
+        //             || typeof objectValue1 === "symbol")
+        //         && objectValue1 === objectValue2
+        //     ){
+        //         return false
+        //     }
+        //     else if(typeof objectValue1 === "object"){
+        //         if(objectValue1 ===null && objectValue1===objectValue2){
+        //             return false
+        //         }
+        //     }
+        // }
+        return true;
+    };
     var dispatch = function (props) {
         var key = Object.keys(props);
-        if (!state[key] || allowStateUpdate_1.default(state[key], props[key]))
+        if (!state[key]) {
             setState(function (prevState) {
                 var _a;
                 return (__assign(__assign({}, prevState), (_a = {}, _a[key] = props[key], _a)));
             });
+        }
     };
-    return (react_1.default.createElement(Context.Provider, { value: { state: __assign(__assign({}, initialState), state), dispatch: function (props) { return dispatch(props); } } }, children));
+    return (react_1["default"].createElement(Context.Provider, { value: { state: __assign(__assign({}, initialState), state), dispatch: function (props) { return dispatch(props); } } }, children));
 });
-exports.default = Provider;
+exports["default"] = Provider;
+//# sourceMappingURL=Provider.js.map

@@ -88,7 +88,7 @@ var __spread = (this && this.__spread) || function () {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.server = void 0;
 var fs_1 = __importDefault(require("fs"));
 var path_1 = __importDefault(require("path"));
@@ -99,9 +99,9 @@ var webpack_config_1 = require("../webpackConfig/webpack.config");
 // const nodeExternals = require('webpack-node-externals');
 var process_1 = __importDefault(require("process"));
 // const WriteFileWebpackPlugin = require('write-file-webpack-plugin');
-var appDirectory = fs_1.default.realpathSync(process_1.default.cwd());
-var resolvePath = function (relativePath) { return path_1.default.resolve(appDirectory, relativePath); };
-var resolveDir = function (relativePath) { return path_1.default.resolve(appDirectory, relativePath); };
+var appDirectory = fs_1["default"].realpathSync(process_1["default"].cwd());
+var resolvePath = function (relativePath) { return path_1["default"].resolve(appDirectory, relativePath); };
+var resolveDir = function (relativePath) { return path_1["default"].resolve(appDirectory, relativePath); };
 var write_file_webpack_plugin_1 = __importDefault(require("write-file-webpack-plugin"));
 var react_refresh_webpack_plugin_1 = __importDefault(require("@pmmmwh/react-refresh-webpack-plugin"));
 var compiler_1 = __importDefault(require("./compiler"));
@@ -122,33 +122,33 @@ exports.server = function (port) { return __awaiter(void 0, void 0, void 0, func
                 clintConfiguration = webpack_config_1.clientConfig("development");
                 watchOptions = {
                     ignored: /node_modules/,
-                    stats: serverConfiguration.stats,
+                    stats: serverConfiguration.stats
                 };
                 serverWebpackConfig = __assign(__assign({}, serverConfiguration), { plugins: __spread(serverConfiguration.plugins), mode: 'development', performance: {
-                        hints: false,
+                        hints: false
                     } });
                 clientEntry = {};
                 Object.keys(clintConfiguration.entry).map(function (key, i) {
                     var _a;
                     clientEntry = __assign(__assign({}, clientEntry), (_a = {}, _a[key] = [clintConfiguration.entry[key],
-                        path_1.default.join(__dirname, "../client/webpack-hot-middleware/client?path=__webpack_hmr&port=3006&overlay=true")
+                        path_1["default"].join(__dirname, "../client/webpack-hot-middleware/client?path=__webpack_hmr&port=3006&overlay=true")
                     ], _a));
                 });
                 clientWebpackConfig = __assign(__assign({}, clintConfiguration), { entry: clientEntry, output: __assign(__assign({}, clintConfiguration.output), { hotUpdateMainFilename: 'hmr/updates/[hash].hot-update.json', hotUpdateChunkFilename: 'hmr/updates/[id].[hash].hot-update.js' }), plugins: __spread(clintConfiguration.plugins, [
-                        new write_file_webpack_plugin_1.default(),
-                        new webpack_1.default.HotModuleReplacementPlugin(),
-                        new react_refresh_webpack_plugin_1.default({
-                            overlay: false,
+                        new write_file_webpack_plugin_1["default"](),
+                        new webpack_1["default"].HotModuleReplacementPlugin(),
+                        new react_refresh_webpack_plugin_1["default"]({
+                            overlay: false
                         }),
                     ]), devServer: {
                         hot: true
                     }, mode: 'development', performance: {
-                        hints: false,
+                        hints: false
                     } });
                 PORT = 3006;
                 HOST = 'http://google.com';
-                app = express_1.default();
-                clientCompiler = webpack_1.default(clientWebpackConfig);
+                app = express_1["default"]();
+                clientCompiler = webpack_1["default"](clientWebpackConfig);
                 app.use(function (_req, res, next) {
                     res.header("Access-Control-Allow-Origin", "*");
                     res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
@@ -156,36 +156,36 @@ exports.server = function (port) { return __awaiter(void 0, void 0, void 0, func
                     return next();
                 });
                 app.get('/get-error-file-text', function (_req, res) { return getFileErrorCode(_req, res); });
-                app.use(webpack_dev_middleware_1.default(clientCompiler, {
+                app.use(webpack_dev_middleware_1["default"](clientCompiler, {
                     publicPath: clientWebpackConfig.output.publicPath,
                     stats: clientWebpackConfig.stats,
                     watchOptions: watchOptions
                 }));
-                app.use(middleware_1.default(clientCompiler));
+                app.use(middleware_1["default"](clientCompiler));
                 // let server = http.createServer(app)
                 app.listen(PORT);
                 _b = (_a = Promise).all;
-                return [4 /*yield*/, compiler_1.default(serverWebpackConfig, watchOptions)];
+                return [4 /*yield*/, compiler_1["default"](serverWebpackConfig, watchOptions)];
             case 1:
                 _b.apply(_a, [[
                         _c.sent()
                     ]]).then(function (values) {
                     try {
-                        var script = nodemon_1.default({
+                        var script = nodemon_1["default"]({
                             script: resolvePath('build/server/') + "/app.js",
                             ignore: ['./src', './*.*', 'build', '**/locales', '**/tmp'],
-                            delay: 3,
+                            delay: 3
                         });
                         script.on('restart', function () {
                             console.log('Server side app has been restarted.', 'warning');
                         });
                         script.on('quit', function () {
                             console.log('Process ended');
-                            process_1.default.exit();
+                            process_1["default"].exit();
                         });
                         script.on('error', function () {
                             console.log('An error occured. Exiting', 'error');
-                            process_1.default.exit(1);
+                            process_1["default"].exit(1);
                         });
                     }
                     catch (e) {
@@ -198,7 +198,7 @@ exports.server = function (port) { return __awaiter(void 0, void 0, void 0, func
 }); };
 var getFileErrorCode = function (_req, res) {
     var _a = _req.query, path = _a.path, line = _a.line, column = _a.column;
-    fs_1.default.readFile(resolvePath(path), 'utf8', function (_err, data) {
+    fs_1["default"].readFile(resolvePath(path), 'utf8', function (_err, data) {
         var textArray = data.split('\n');
         var number = (line - 1) - 3;
         var movedIndex = number > -1 ? 3 : 3 + number;
@@ -251,3 +251,4 @@ var getFileErrorCode = function (_req, res) {
         res.send(new Buffer(container.innerHTML));
     });
 };
+//# sourceMappingURL=server.js.map

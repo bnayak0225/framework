@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var webpack_sources_1 = require("webpack-sources");
 var Html = /** @class */ (function () {
     function Html() {
@@ -32,4 +32,5 @@ var Html = /** @class */ (function () {
     };
     return Html;
 }());
-exports.default = Html;
+exports["default"] = Html;
+//# sourceMappingURL=html.js.map

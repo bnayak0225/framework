@@ -3,7 +3,8 @@ module.exports = {
     compact: true,
     presets: [
         [
-            '@babel/preset-env'
+            '@babel/preset-env',
+            { 'modules': false },
         ],
         '@babel/preset-react',
         '@babel/typescript',
@@ -25,18 +26,19 @@ module.exports = {
                 '@babel/plugin-transform-runtime',
                 '@babel/syntax-dynamic-import',
                 '@babel/plugin-transform-runtime',
-            ],
+            ]
         },
         tooling: {
             presets: [
                 [
                     '@babel/env',
                     {
-                        modules: 'commonjs',
+                        modules: 'commonjs'
                     },
                 ],
                 '@babel/typescript',
-            ],
-        },
-    },
+            ]
+        }
+    }
 };
+//# sourceMappingURL=babel.config.js.map

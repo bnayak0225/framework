@@ -32,7 +32,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.Route = void 0;
 var react_1 = __importStar(require("react"));
 var context_1 = require("./context");
@@ -48,21 +48,22 @@ var Route = react_1.memo(function (_a) {
     }
     var Component = component;
     var routerContext = context_1.RouterContext;
-    var url = react_1.default.useContext(routerContext).pathname;
-    var callbackValidatePath = react_1.useCallback(function (pathname, url) { return function () { return validatePath_1.default(pathname, url); }; }, [url]);
+    var url = react_1["default"].useContext(routerContext).pathname;
+    var callbackValidatePath = react_1.useCallback(function (pathname, url) { return function () { return validatePath_1["default"](pathname, url); }; }, [url]);
     var pathValidate = callbackValidatePath(path, url);
     if (!pathValidate) {
         return null;
     }
-    var childrenWithProps = react_1.default.Children.map(children, function (child) {
+    var childrenWithProps = react_1["default"].Children.map(children, function (child) {
         // checking isValidElement is the safe way and avoids a typescript error too
-        if (react_1.default.isValidElement(child)) {
-            return react_1.default.cloneElement(child, __assign(__assign({}, props), { params: pathValidate }));
+        if (react_1["default"].isValidElement(child)) {
+            return react_1["default"].cloneElement(child, __assign(__assign({}, props), { params: pathValidate }));
         }
         return child;
     });
-    return (react_1.default.createElement(react_1.default.Fragment, null,
-        children ? childrenWithProps : react_1.default.createElement(Component, __assign({}, props, { params: pathValidate })),
+    return (react_1["default"].createElement(react_1["default"].Fragment, null,
+        children ? childrenWithProps : react_1["default"].createElement(Component, __assign({}, props, { params: pathValidate })),
         " "));
 });
 exports.Route = Route;
+//# sourceMappingURL=Route.js.map

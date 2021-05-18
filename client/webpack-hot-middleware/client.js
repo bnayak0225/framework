@@ -13,7 +13,7 @@ var options = {
     autoConnect: true,
     overlayStyles: {},
     overlayWarnings: false,
-    ansiColors: {},
+    ansiColors: {}
 };
 if (__resourceQuery) {
     var querystring = require('querystring');
@@ -108,7 +108,7 @@ function EventSourceWrapper() {
     return {
         addMessageListener: function (fn) {
             listeners.push(fn);
-        },
+        }
     };
 }
 function getEventSourceWrapper() {
@@ -156,12 +156,12 @@ function createReporter() {
     if (typeof document !== 'undefined' && options.overlay) {
         overlay = require('./client-overlay')({
             ansiColors: options.ansiColors,
-            overlayStyles: options.overlayStyles,
+            overlayStyles: options.overlayStyles
         });
     }
     var styles = {
         errors: 'color: #ff0000;',
-        warnings: 'color: #999933;',
+        warnings: 'color: #999933;'
     };
     var previousProblems = null;
     function log(type, obj) {
@@ -214,7 +214,7 @@ function createReporter() {
         },
         useCustomOverlay: function (customOverlay) {
             overlay = customOverlay;
-        },
+        }
     };
 }
 var processUpdate = require('./process-update');
@@ -285,6 +285,7 @@ if (module) {
             if (reporter)
                 reporter.useCustomOverlay(customOverlay);
         },
-        setOptionsAndConnect: setOptionsAndConnect,
+        setOptionsAndConnect: setOptionsAndConnect
     };
 }
+//# sourceMappingURL=client.js.map

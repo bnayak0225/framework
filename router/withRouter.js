@@ -26,7 +26,7 @@ var __assign = (this && this.__assign) || function () {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.withRouter = void 0;
 var react_1 = __importDefault(require("react"));
 var context_1 = require("./context");
@@ -40,9 +40,10 @@ function withRouter(WrappedComponent) {
         }
         class_1.prototype.render = function () {
             var _this = this;
-            return (react_1.default.createElement(context_1.RouterContext.Consumer, null, function (state) { return (react_1.default.createElement(WrappedComponent, __assign({}, _this.props, { location: __assign(__assign({}, _this.location), { push: state.push }) }))); }));
+            return (react_1["default"].createElement(context_1.RouterContext.Consumer, null, function (state) { return (react_1["default"].createElement(WrappedComponent, __assign({}, _this.props, { location: __assign(__assign({}, _this.location), { push: state.push }) }))); }));
         };
         return class_1;
-    }(react_1.default.PureComponent));
+    }(react_1["default"].PureComponent));
 }
 exports.withRouter = withRouter;
+//# sourceMappingURL=withRouter.js.map

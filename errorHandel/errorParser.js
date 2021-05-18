@@ -2,15 +2,15 @@
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var error_stack_parser_1 = __importDefault(require("error-stack-parser"));
 var stacktrace_gps_1 = __importDefault(require("stacktrace-gps"));
 var ErrorParser = function (error) {
     return new Promise(function (resolve) {
         try {
             var errorStackFrame = [];
-            var gps_1 = new stacktrace_gps_1.default();
-            var errorFrame_1 = error_stack_parser_1.default.parse(error);
+            var gps_1 = new stacktrace_gps_1["default"]();
+            var errorFrame_1 = error_stack_parser_1["default"].parse(error);
             var frames_1 = new Array(errorFrame_1.length);
             var frameResolved_1 = 0;
             errorFrame_1.forEach(function (stackFrame, i) {
@@ -31,4 +31,5 @@ var ErrorParser = function (error) {
         }
     });
 };
-exports.default = ErrorParser;
+exports["default"] = ErrorParser;
+//# sourceMappingURL=errorParser.js.map

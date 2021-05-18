@@ -50,7 +50,7 @@ var __values = (this && this.__values) || function(o) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var compiler_1 = __importDefault(require("../build_ssr/compiler"));
 var constant_1 = require("../lib/constant");
 // require = require('esm')(module /*, options*/)
@@ -81,7 +81,7 @@ var checkOption = function (argv, option) {
     catch (e_1_1) { e_1 = { error: e_1_1 }; }
     finally {
         try {
-            if (argv_1_1 && !argv_1_1.done && (_a = argv_1.return)) _a.call(argv_1);
+            if (argv_1_1 && !argv_1_1.done && (_a = argv_1["return"])) _a.call(argv_1);
         }
         finally { if (e_1) throw e_1.error; }
     }
@@ -101,7 +101,7 @@ var checkOption = function (argv, option) {
                         name: "mode",
                         message: "Select your mode",
                         choices: ['build', 'start'],
-                        default: 'start'
+                        "default": 'start'
                     }
                 ];
                 return [4 /*yield*/, inquirer.prompt(question)];
@@ -127,7 +127,7 @@ var checkOption = function (argv, option) {
                         name: "port",
                         message: "Select your port range 1024 to 49151: ",
                         choices: [''],
-                        default: constant_1.DEFAULT_PORT
+                        "default": constant_1.DEFAULT_PORT
                     }
                 ];
                 return [4 /*yield*/, inquirer.prompt(question)];
@@ -155,7 +155,7 @@ var checkOption = function (argv, option) {
                 _a.sent();
                 return [3 /*break*/, 9];
             case 8:
-                compiler_1.default();
+                compiler_1["default"]();
                 _a.label = 9;
             case 9: return [2 /*return*/];
         }
@@ -180,3 +180,4 @@ var checkOption = function (argv, option) {
 //   console.log("Usage:\x1b[33m framework \x1b[34m<command>\n\x1b[0m")
 //   console.log("where \x1b[34m<command>\x1b[0m","is one of: \x1b[31mstart, build", "\x1b[0m")
 // }
+//# sourceMappingURL=framework-start.js.map

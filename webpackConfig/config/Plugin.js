@@ -1,4 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.Plugin = void 0;
 exports.Plugin = {};
+//# sourceMappingURL=Plugin.js.map

@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.history = void 0;
 var history = {
     push: function (to) {
@@ -9,3 +9,4 @@ var history = {
     }
 };
 exports.history = history;
+//# sourceMappingURL=history.js.map
