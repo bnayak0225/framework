@@ -288,4 +288,3 @@ if (module) {
         setOptionsAndConnect: setOptionsAndConnect
     };
 }
-//# sourceMappingURL=client.js.map

@@ -189,4 +189,3 @@ var style = {
     }
 };
 exports["default"] = ErrorBoundary;
-//# sourceMappingURL=errorBoundary.js.map

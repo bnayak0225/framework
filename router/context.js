@@ -78,4 +78,3 @@ var RouterContextProvider = react_1.memo(function (props) {
     return (react_1["default"].createElement(exports.RouterContext.Provider, { value: __assign(__assign({}, state), { push: function (to) { return push(to); } }) }, props.children));
 });
 exports["default"] = RouterContextProvider;
-//# sourceMappingURL=context.js.map

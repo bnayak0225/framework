@@ -9,4 +9,3 @@ var connect_1 = require("./state/connect");
 exports.Connect = connect_1.Connect;
 var store_1 = require("./state/store");
 exports.store = store_1.store;
-//# sourceMappingURL=index.js.map

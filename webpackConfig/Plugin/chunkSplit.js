@@ -297,4 +297,3 @@ var customSplitChunk = function (compilation, chunkList) {
         finally { if (e_4) throw e_4.error; }
     }
 };
-//# sourceMappingURL=chunkSplit.js.map

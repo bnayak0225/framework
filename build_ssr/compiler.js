@@ -63,4 +63,3 @@ var compilerStart = function () {
     });
 };
 exports["default"] = compilerStart;
-//# sourceMappingURL=compiler.js.map

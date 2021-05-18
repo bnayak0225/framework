@@ -48,4 +48,3 @@ var validatePath = function (path, url) {
     return prop;
 };
 exports["default"] = validatePath;
-//# sourceMappingURL=validatePath.js.map

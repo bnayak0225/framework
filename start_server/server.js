@@ -251,4 +251,3 @@ var getFileErrorCode = function (_req, res) {
         res.send(new Buffer(container.innerHTML));
     });
 };
-//# sourceMappingURL=server.js.map

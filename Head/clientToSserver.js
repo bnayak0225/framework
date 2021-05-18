@@ -70,4 +70,3 @@ var withClientToServer = function (propsToState, onChange) {
     };
 };
 exports["default"] = withClientToServer;
-//# sourceMappingURL=clientToSserver.js.map

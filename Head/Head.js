@@ -129,4 +129,3 @@ var propsToState = function (props) {
 };
 var ClientToServer = (clientToSserver_1["default"](propsToState, stateOnChange)(HeadTag));
 exports.ClientToServer = ClientToServer;
-//# sourceMappingURL=Head.js.map

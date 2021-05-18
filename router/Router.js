@@ -10,4 +10,3 @@ var context_1 = __importDefault(require("./context"));
 exports.RouterContextProvider = context_1["default"];
 var link_1 = require("./link");
 exports.Link = link_1.Link;
-//# sourceMappingURL=Router.js.map

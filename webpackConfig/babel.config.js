@@ -41,4 +41,3 @@ module.exports = {
         }
     }
 };
-//# sourceMappingURL=babel.config.js.map

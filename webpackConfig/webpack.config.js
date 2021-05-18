@@ -229,4 +229,3 @@ var clientConfig = function (environment) {
     };
 };
 exports.clientConfig = clientConfig;
-//# sourceMappingURL=webpack.config.js.map

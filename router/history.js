@@ -9,4 +9,3 @@ var history = {
     }
 };
 exports.history = history;
-//# sourceMappingURL=history.js.map

@@ -85,4 +85,3 @@ module.exports = function (options) {
 };
 module.exports.clear = clear;
 module.exports.showProblems = showProblems;
-//# sourceMappingURL=client-overlay.js.map

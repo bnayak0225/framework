@@ -8,4 +8,3 @@ var dynamicImport = function (pathname) {
     });
 };
 exports["default"] = dynamicImport;
-//# sourceMappingURL=clientImport.js.map

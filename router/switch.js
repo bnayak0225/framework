@@ -61,4 +61,3 @@ var Switch = react_1.memo(function (_a) {
     return (react_1["default"].createElement(react_1["default"].Fragment, null, component));
 });
 exports["default"] = Switch;
-//# sourceMappingURL=switch.js.map

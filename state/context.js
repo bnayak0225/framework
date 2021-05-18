@@ -6,4 +6,3 @@ exports.__esModule = true;
 var react_1 = __importDefault(require("react"));
 var StoreContext = react_1["default"].createContext({ state: {}, dispatch: function () { } });
 exports["default"] = StoreContext;
-//# sourceMappingURL=context.js.map

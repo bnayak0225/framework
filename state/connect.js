@@ -58,4 +58,3 @@ var Connect = function (getState, setState) {
     };
 };
 exports.Connect = Connect;
-//# sourceMappingURL=connect.js.map

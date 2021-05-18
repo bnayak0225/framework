@@ -45,4 +45,3 @@ var PagesManifestPlugin = /** @class */ (function () {
     return PagesManifestPlugin;
 }());
 exports["default"] = PagesManifestPlugin;
-//# sourceMappingURL=pagesManifest.js.map

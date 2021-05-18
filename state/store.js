@@ -16,4 +16,3 @@ var store = function () {
     };
 };
 exports.store = store;
-//# sourceMappingURL=store.js.map

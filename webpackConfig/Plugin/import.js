@@ -25,4 +25,3 @@ var NextJsSsrImportPlugin = /** @class */ (function () {
     return NextJsSsrImportPlugin;
 }());
 exports["default"] = NextJsSsrImportPlugin;
-//# sourceMappingURL=import.js.map

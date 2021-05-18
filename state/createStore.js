@@ -16,4 +16,3 @@ function createStore(context) {
     };
 }
 exports.createStore = createStore;
-//# sourceMappingURL=createStore.js.map

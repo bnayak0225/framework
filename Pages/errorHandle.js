@@ -100,4 +100,3 @@ var ErrorBoundary = /** @class */ (function (_super) {
     return ErrorBoundary;
 }(react_1.Component));
 exports["default"] = ErrorBoundary;
-//# sourceMappingURL=errorHandle.js.map

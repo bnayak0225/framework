@@ -180,4 +180,3 @@ var checkOption = function (argv, option) {
 //   console.log("Usage:\x1b[33m framework \x1b[34m<command>\n\x1b[0m")
 //   console.log("where \x1b[34m<command>\x1b[0m","is one of: \x1b[31mstart, build", "\x1b[0m")
 // }
-//# sourceMappingURL=framework-start.js.map

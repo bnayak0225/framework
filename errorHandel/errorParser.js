@@ -32,4 +32,3 @@ var ErrorParser = function (error) {
     });
 };
 exports["default"] = ErrorParser;
-//# sourceMappingURL=errorParser.js.map

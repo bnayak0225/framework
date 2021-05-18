@@ -28,4 +28,3 @@ var AppServer = function (_a) {
         React.createElement(Page, null)));
 };
 exports["default"] = AppServer;
-//# sourceMappingURL=main.js.map

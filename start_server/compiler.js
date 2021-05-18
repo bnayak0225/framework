@@ -27,4 +27,3 @@ var compiler = function (config, option) {
     });
 };
 exports["default"] = compiler;
-//# sourceMappingURL=compiler.js.map

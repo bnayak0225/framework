@@ -60,4 +60,3 @@ var Router = /** @class */ (function (_super) {
     return Router;
 }(react_1["default"].PureComponent));
 exports.Router = Router;
-//# sourceMappingURL=index.js.map

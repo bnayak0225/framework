@@ -14,4 +14,3 @@ function locationToRoute(location) {
     };
 }
 exports.locationToRoute = locationToRoute;
-//# sourceMappingURL=utils.js.map

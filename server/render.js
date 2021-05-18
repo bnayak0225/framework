@@ -121,4 +121,3 @@ var renderHtml = function (component, SplashScreenComponent, routing, page, asse
     });
 }); };
 exports.renderHtml = renderHtml;
-//# sourceMappingURL=render.js.map

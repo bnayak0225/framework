@@ -8,4 +8,3 @@ var Provider_1 = __importDefault(require("./Provider"));
 exports.Provider = Provider_1["default"];
 var connect_1 = require("./connect");
 exports.Connect = connect_1.Connect;
-//# sourceMappingURL=reactState.js.map

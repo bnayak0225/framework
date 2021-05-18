@@ -170,4 +170,3 @@ function buildModuleMap(modules) {
     });
     return map;
 }
-//# sourceMappingURL=middleware.js.map

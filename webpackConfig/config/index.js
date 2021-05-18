@@ -8,4 +8,3 @@ var loader_1 = __importDefault(require("./loader"));
 exports.Loader = loader_1["default"];
 var Plugin_1 = require("./Plugin");
 exports.Plugin = Plugin_1.Plugin;
-//# sourceMappingURL=index.js.map

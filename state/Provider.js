@@ -90,4 +90,3 @@ var Provider = react_1.memo(function (_a) {
     return (react_1["default"].createElement(Context.Provider, { value: { state: __assign(__assign({}, initialState), state), dispatch: function (props) { return dispatch(props); } } }, children));
 });
 exports["default"] = Provider;
-//# sourceMappingURL=Provider.js.map

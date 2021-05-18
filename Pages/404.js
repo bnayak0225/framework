@@ -10,4 +10,3 @@ var error404 = function () {
         react_1["default"].createElement("p", null, "Page not found")));
 };
 exports["default"] = error404;
-//# sourceMappingURL=404.js.map

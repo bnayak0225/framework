@@ -66,4 +66,3 @@ var Route = react_1.memo(function (_a) {
         " "));
 });
 exports.Route = Route;
-//# sourceMappingURL=Route.js.map

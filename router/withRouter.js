@@ -46,4 +46,3 @@ function withRouter(WrappedComponent) {
     }(react_1["default"].PureComponent));
 }
 exports.withRouter = withRouter;
-//# sourceMappingURL=withRouter.js.map

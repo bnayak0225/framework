@@ -37,4 +37,3 @@ var ChunkNamesPlugin = /** @class */ (function () {
     return ChunkNamesPlugin;
 }());
 exports["default"] = ChunkNamesPlugin;
-//# sourceMappingURL=nameChunk.js.map

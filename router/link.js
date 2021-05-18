@@ -47,4 +47,3 @@ var Link = react_1.memo(function (props) {
         react_1["default"].createElement("a", { href: props.to, onClick: function (e) { return e.preventDefault(); } }, children)));
 });
 exports.Link = Link;
-//# sourceMappingURL=link.js.map
