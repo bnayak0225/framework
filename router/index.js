@@ -55,6 +55,7 @@ var Router = /** @class */ (function (_super) {
         var routerContextValue = { route: route };
         // Check if 404 if no route matched
         var is404 = this.routes.indexOf(route.path) === -1;
+        console.log("time");
         return (react_1["default"].createElement(context_1.RouterContext.Provider, { value: routerContextValue }, is404 ? react_1["default"].createElement(NotFound, null) : children));
     };
     return Router;

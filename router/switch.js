@@ -46,12 +46,12 @@ var Switch = react_1.memo(function (_a) {
     var _b = __read(react_1.useState(), 2), component = _b[0], setComponent = _b[1];
     var routerContext = context_1.RouterContext;
     var url = react_1["default"].useContext(routerContext).pathname;
-    var callbackValidatePath = react_1.useCallback(function (pathname, url) { return function () { return validatePath_1["default"](pathname, url); }; }, [url]);
+    var pathValidate = react_1.useCallback(function (path, url) { return validatePath_1["default"](path, url); }, [url]);
     react_1.useEffect(function () {
         for (var i = 0; i < children.length; i++) {
             if (children[i].props && children[i].props.path) {
-                var pathValidate = callbackValidatePath(children[i].props.path, url);
-                if (pathValidate) {
+                var pathName = children[i].props.path;
+                if (pathValidate(pathName, url)) {
                     setComponent(children[i]);
                     break;
                 }

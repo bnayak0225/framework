@@ -96,8 +96,8 @@ var App = /** @class */ (function (_super) {
             return (react_1["default"].createElement(errorBoundary_1["default"], { hasError: hasError, error: error }));
         }
         return (react_1["default"].createElement(react_1["default"].Fragment, null,
-            react_1["default"].createElement(Provider_1["default"], null,
-                react_1["default"].createElement(Router_1.RouterContextProvider, null,
+            react_1["default"].createElement(Router_1.RouterContextProvider, null,
+                react_1["default"].createElement(Provider_1["default"], null,
                     react_1["default"].createElement(switch_1["default"], null, this.props.routing.map(function (route, i) {
                         return (route);
                     }))))));

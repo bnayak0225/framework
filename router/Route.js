@@ -49,7 +49,7 @@ var Route = react_1.memo(function (_a) {
     var Component = component;
     var routerContext = context_1.RouterContext;
     var url = react_1["default"].useContext(routerContext).pathname;
-    var callbackValidatePath = react_1.useCallback(function (pathname, url) { return function () { return validatePath_1["default"](pathname, url); }; }, [url]);
+    var callbackValidatePath = react_1.useCallback(function (pathname, url) { return validatePath_1["default"](pathname, url); }, [url]);
     var pathValidate = callbackValidatePath(path, url);
     if (!pathValidate) {
         return null;
