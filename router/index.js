@@ -16,7 +16,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-exports.withRouter = exports.Link = exports.Router = exports.RouterContext = void 0;
+exports.Route = exports.withRouter = exports.Link = exports.Router = exports.RouterContext = void 0;
 var react_1 = __importDefault(require("react"));
 var utils_1 = require("./utils");
 var context_1 = require("./context");
@@ -25,6 +25,8 @@ var link_1 = require("./link");
 exports.Link = link_1.Link;
 var withRouter_1 = require("./withRouter");
 exports.withRouter = withRouter_1.withRouter;
+var Route_1 = require("./Route");
+exports.Route = Route_1.Route;
 var Router = /** @class */ (function (_super) {
     __extends(Router, _super);
     function Router(props) {

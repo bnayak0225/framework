@@ -30,7 +30,7 @@ var validatePath = function (path, url) {
     var pathArray = pathname.split("/");
     var locationArray = locationPath.split("/");
     var prop = {};
-    if (pathArray.length === locationArray.length || (pathArray[pathArray.length - 1] === "*" && pathArray.length - 1 === locationArray.length)) {
+    if (pathArray.length === locationArray.length || (pathArray[pathArray.length - 1] === "*" && pathArray.length - 1 <= locationArray.length)) {
         if (pathArray[0] !== "index" || (pathArray[0] === "index" && locationArray[0] !== "")) {
             for (var i = 0; i < pathArray.length; i++) {
                 if (pathArray[i] !== "*" && pathArray[i] !== locationArray[i] && pathArray[i].charAt(0) !== ":") {
