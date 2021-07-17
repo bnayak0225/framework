@@ -40,7 +40,7 @@ function withRouter(WrappedComponent) {
         }
         class_1.prototype.render = function () {
             var _this = this;
-            return (react_1["default"].createElement(context_1.RouterContext.Consumer, null, function (state) { return (react_1["default"].createElement(WrappedComponent, __assign({}, _this.props, { location: __assign(__assign({}, _this.location), { push: state.push }) }))); }));
+            return (react_1["default"].createElement(context_1.RouterContext.Consumer, null, function (state) { return (react_1["default"].createElement(WrappedComponent, __assign({}, _this.props, { location: __assign(__assign({}, _this.location), { push: state.push, replace: state.replace }) }))); }));
         };
         return class_1;
     }(react_1["default"].PureComponent));
