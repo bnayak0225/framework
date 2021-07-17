@@ -38,7 +38,6 @@ var Link = react_1.memo(function (props) {
     var push = react_1["default"].useContext(context_1.RouterContext).push;
     var handleClick = function (e) {
         e.preventDefault();
-        // const routerContext = RouterContext
         if (typeof (window) !== "undefined") {
             push(to);
         }
