@@ -66,7 +66,7 @@ var createElement = function (type) {
     return element;
 };
 var getTagArray = function (props) {
-    var e_2, _a, e_3, _b;
+    var e_2, _a, e_3, _b, e_4, _c;
     var elementsArray = document.createDocumentFragment();
     var tags = [];
     if (!Array.isArray(props.children)) {
@@ -101,6 +101,31 @@ var getTagArray = function (props) {
                             if (attributeNameArray_1_1 && !attributeNameArray_1_1.done && (_b = attributeNameArray_1["return"])) _b.call(attributeNameArray_1);
                         }
                         finally { if (e_3) throw e_3.error; }
+                    }
+                    break;
+                case "script":
+                    var attributeNameArray = Object.keys(tag.props);
+                    var indexChildren = attributeNameArray.findIndex(function (a) { return a === "children"; });
+                    var scriptText = "";
+                    if (indexChildren !== -1) {
+                        scriptText = tag.props["children"];
+                        attributeNameArray.splice(indexChildren, 1);
+                    }
+                    try {
+                        for (var attributeNameArray_2 = (e_4 = void 0, __values(attributeNameArray)), attributeNameArray_2_1 = attributeNameArray_2.next(); !attributeNameArray_2_1.done; attributeNameArray_2_1 = attributeNameArray_2.next()) {
+                            var attribute = attributeNameArray_2_1.value;
+                            element.setAttribute(attribute, tag.props[attribute]);
+                        }
+                    }
+                    catch (e_4_1) { e_4 = { error: e_4_1 }; }
+                    finally {
+                        try {
+                            if (attributeNameArray_2_1 && !attributeNameArray_2_1.done && (_c = attributeNameArray_2["return"])) _c.call(attributeNameArray_2);
+                        }
+                        finally { if (e_4) throw e_4.error; }
+                    }
+                    if (scriptText) {
+                        element.innerText = scriptText;
                     }
                     break;
             }
