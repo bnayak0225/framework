@@ -55,29 +55,7 @@ var Provider = react_1.memo(function (_a) {
     var initialState = _a.initialState, children = _a.children;
     var Context = context_1["default"];
     // let state=initialState
-    var _b = __read(react_1["default"].useState({}), 2), state = _b[0], setState = _b[1];
-    var allowStateUpdate = function (objectValue1, objectValue2) {
-        // console.log(typeof objectValue1);
-        // if (typeof objectValue1 === typeof objectValue2){
-        //     if(
-        //         (typeof objectValue1 === "undefined"
-        //             || typeof objectValue1 === "boolean"
-        //             || typeof objectValue1 === "number"
-        //             || typeof objectValue1 === "string"
-        //             || typeof objectValue1 === "bigint"
-        //             || typeof objectValue1 === "symbol")
-        //         && objectValue1 === objectValue2
-        //     ){
-        //         return false
-        //     }
-        //     else if(typeof objectValue1 === "object"){
-        //         if(objectValue1 ===null && objectValue1===objectValue2){
-        //             return false
-        //         }
-        //     }
-        // }
-        return true;
-    };
+    var _b = __read(react_1.useState({}), 2), state = _b[0], setState = _b[1];
     var dispatch = function (props) {
         var key = Object.keys(props);
         setState(function (prevState) {

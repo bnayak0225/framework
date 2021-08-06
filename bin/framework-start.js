@@ -161,22 +161,3 @@ var checkOption = function (argv, option) {
         }
     });
 }); })();
-// const argv:object = {
-//   start: () => require(serverd),
-//   build: ()=>compilerStart(),
-// };
-// if (arg.length > 0) {
-//   arg.forEach(async function(key:string, index:number) {
-//     if (!(<any>argv)[key]) {
-//       throw new TypeError(`Type missing or not a function or valid array type`);
-//     }
-//   });
-//   Object.keys(argv).forEach(async function(key:string, index:number) {
-//     if (arg.includes(key)) {
-//       (<any>argv)[key]();
-//     }
-//   });
-// } else {
-//   console.log("Usage:\x1b[33m framework \x1b[34m<command>\n\x1b[0m")
-//   console.log("where \x1b[34m<command>\x1b[0m","is one of: \x1b[31mstart, build", "\x1b[0m")
-// }

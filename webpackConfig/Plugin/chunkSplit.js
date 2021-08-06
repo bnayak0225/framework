@@ -50,6 +50,7 @@ var ChunkSplit = function (customOptionList) {
                     alreadyOptimized = true;
                     return customOptionList.reduce(function (o, customOption) {
                         var isChanged = customSplitChunk(compilation, chunks);
+                        // @ts-ignore
                         return isChanged || o;
                     }, false);
                 });

@@ -2,9 +2,7 @@
   "name": "framework",
   "version": "1.0.0",
   "files": [
-    "dist",
-    "src",
-    "LICENSE"
+    "*"
   ],
   "dependencies": {
     "@babel/core": "7.9.6",
@@ -36,7 +34,6 @@
     "bootstrap": "4.5.3",
     "browser-env": "3.3.0",
     "browserslist": "4.12.0",
-    "clean-webpack-plugin": "3.0.0",
     "core-js": "3.6.5",
     "cors": "2.8.5",
     "css-hot-loader": "1.4.4",
@@ -81,7 +78,7 @@
     "react-refresh": "0.8.3",
     "react-router-dom": "5.2.0",
     "sass": "1.29.0",
-    "sass-loader": "10.1.0",
+    "sass-loader": "7.3.1",
     "save": "2.4.0",
     "source-map-support": "0.5.19",
     "stacktrace-gps": "3.0.4",
@@ -115,9 +112,6 @@
   "bin": {
     "framework": "./bin/framework-start.js"
   },
-  "files": [
-    "*"
-  ],
   "devDependencies": {
     "react": "^16.6.0",
     "react-dom": "^16.6.0"

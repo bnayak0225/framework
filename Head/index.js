@@ -79,13 +79,13 @@ var getTagArray = function (props) {
         for (var tags_1 = __values(tags), tags_1_1 = tags_1.next(); !tags_1_1.done; tags_1_1 = tags_1.next()) {
             var tag = tags_1_1.value;
             var element = createElement(tag.type);
+            var attributeNameArray = Object.keys(tag.props);
+            var indexChildren = attributeNameArray.findIndex(function (a) { return a === "children"; });
             switch (tag.type) {
                 case "title":
                     element.innerHTML = tag.props.children;
                     break;
                 case "meta":
-                    var attributeNameArray = Object.keys(tag.props);
-                    var indexChildren = attributeNameArray.findIndex(function (a) { return a === "children"; });
                     if (indexChildren !== -1) {
                         attributeNameArray.splice(indexChildren, 1);
                     }
@@ -104,25 +104,27 @@ var getTagArray = function (props) {
                     }
                     break;
                 case "script":
-                    var attributeNameArray = Object.keys(tag.props);
-                    var indexChildren = attributeNameArray.findIndex(function (a) { return a === "children"; });
                     var scriptText = "";
                     if (indexChildren !== -1) {
                         scriptText = tag.props["children"];
                         attributeNameArray.splice(indexChildren, 1);
                     }
                     try {
-                        for (var attributeNameArray_2 = (e_4 = void 0, __values(attributeNameArray)), attributeNameArray_2_1 = attributeNameArray_2.next(); !attributeNameArray_2_1.done; attributeNameArray_2_1 = attributeNameArray_2.next()) {
-                            var attribute = attributeNameArray_2_1.value;
-                            element.setAttribute(attribute, tag.props[attribute]);
+                        try {
+                            for (var attributeNameArray_2 = (e_4 = void 0, __values(attributeNameArray)), attributeNameArray_2_1 = attributeNameArray_2.next(); !attributeNameArray_2_1.done; attributeNameArray_2_1 = attributeNameArray_2.next()) {
+                                var attribute = attributeNameArray_2_1.value;
+                                element.setAttribute(attribute, tag.props[attribute]);
+                            }
+                        }
+                        catch (e_4_1) { e_4 = { error: e_4_1 }; }
+                        finally {
+                            try {
+                                if (attributeNameArray_2_1 && !attributeNameArray_2_1.done && (_c = attributeNameArray_2["return"])) _c.call(attributeNameArray_2);
+                            }
+                            finally { if (e_4) throw e_4.error; }
                         }
                     }
-                    catch (e_4_1) { e_4 = { error: e_4_1 }; }
-                    finally {
-                        try {
-                            if (attributeNameArray_2_1 && !attributeNameArray_2_1.done && (_c = attributeNameArray_2["return"])) _c.call(attributeNameArray_2);
-                        }
-                        finally { if (e_4) throw e_4.error; }
+                    catch (e) {
                     }
                     if (scriptText) {
                         element.innerText = scriptText;
