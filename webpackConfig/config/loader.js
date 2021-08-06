@@ -42,7 +42,7 @@ var Loader = {
         ]
     },
     cssClientLoader: {
-        test: /\.s[ac]ss$/i,
+        test: /\.s?[ac]ss$/i,
         exclude: /\.module\.css$/,
         use: [
             require.resolve('css-hot-loader'),
@@ -67,7 +67,7 @@ var Loader = {
         ]
     },
     cssServerLoader: {
-        test: /\.s[ac]ss$/i,
+        test: /\.s?[ac]ss$/i,
         use: [
             // require.resolve('css-hot-loader'),
             require.resolve('css-loader'),
