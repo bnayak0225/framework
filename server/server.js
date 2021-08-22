@@ -103,7 +103,7 @@ var ignoreFavicon = function (req, res, next) {
                 app.use("/", express.static('build/client'));
                 app.use("/", express.static('build'));
                 app.use(ignoreFavicon);
-                app.get("*", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+                app.use("*", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
                     var routing, host, assets, splashScreenComponent, splashScreen, routeData_1, page, component, fileList, html;
                     return __generator(this, function (_a) {
                         switch (_a.label) {

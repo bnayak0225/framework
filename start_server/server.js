@@ -162,7 +162,6 @@ exports.server = function (port) { return __awaiter(void 0, void 0, void 0, func
                     watchOptions: watchOptions
                 }));
                 app.use(middleware_1["default"](clientCompiler));
-                // let server = http.createServer(app)
                 app.listen(PORT);
                 _b = (_a = Promise).all;
                 return [4 /*yield*/, compiler_1["default"](serverWebpackConfig, watchOptions)];
