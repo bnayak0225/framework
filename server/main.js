@@ -22,9 +22,9 @@ exports.__esModule = true;
 var React = __importStar(require("react"));
 var reactState_1 = require("../state/reactState");
 var AppServer = function (_a) {
-    var page = _a.page;
+    var page = _a.page, body = _a.body, headers = _a.headers;
     var Page = page;
     return (React.createElement(reactState_1.Provider, null,
-        React.createElement(Page, null)));
+        React.createElement(Page, { body: body || null, header: headers || null })));
 };
 exports["default"] = AppServer;

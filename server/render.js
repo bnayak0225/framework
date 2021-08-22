@@ -101,12 +101,12 @@ var HtmlContainer = function (appHtml, splasHtml, headerData, routing, page, jsA
         });
     });
 };
-var renderHtml = function (component, SplashScreenComponent, routing, page, assets, host) { return __awaiter(void 0, void 0, void 0, function () {
+var renderHtml = function (component, SplashScreenComponent, routing, page, assets, host, headers, body) { return __awaiter(void 0, void 0, void 0, function () {
     var appHtml, splashScreen, headTag, jsArray, cssArray, _a, _b;
     return __generator(this, function (_c) {
         switch (_c.label) {
             case 0:
-                appHtml = server_1.renderToString(react_1["default"].createElement(main_1["default"], { page: component }));
+                appHtml = server_1.renderToString(react_1["default"].createElement(main_1["default"], { page: component, body: body, headers: headers }));
                 if (SplashScreenComponent) {
                     splashScreen = server_1.renderToString(react_1["default"].createElement(SplashScreenComponent, null));
                 }

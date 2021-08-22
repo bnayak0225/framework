@@ -158,7 +158,7 @@ var ignoreFavicon = function (req, res, next) {
                                 component = _a.sent();
                                 return [3 /*break*/, 7];
                             case 6: throw new Error('File not found: ' + page);
-                            case 7: return [4 /*yield*/, render_1.renderHtml(component, splashScreenComponent, routing, page, assets, host)];
+                            case 7: return [4 /*yield*/, render_1.renderHtml(component, splashScreenComponent, routing, page, assets, host, req.headers, req.body)];
                             case 8:
                                 html = _a.sent();
                                 res.send(html);
