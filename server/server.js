@@ -104,11 +104,17 @@ var ignoreFavicon = function (req, res, next) {
                 app.use("/", express.static('build'));
                 app.use(ignoreFavicon);
                 app.use("*", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-                    var routing, host, assets, splashScreenComponent, splashScreen, routeData_1, page, component, fileList, html;
+                    var requestDetail, routing, host, assets, splashScreenComponent, splashScreen, routeData_1, page, component, fileList, html;
                     return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0:
                                 window.location.pathname = req.url;
+                                requestDetail = null;
+                                if (req.method === "POST") {
+                                    // @ts-ignore
+                                    requestDetail = { headers: req.headers, body: req.body };
+                                    window.location.requestDetail = requestDetail;
+                                }
                                 routing = [];
                                 host = req.protocol + "://" + req.hostname + ":" + port;
                                 assets = res.locals;
@@ -158,7 +164,7 @@ var ignoreFavicon = function (req, res, next) {
                                 component = _a.sent();
                                 return [3 /*break*/, 7];
                             case 6: throw new Error('File not found: ' + page);
-                            case 7: return [4 /*yield*/, render_1.renderHtml(component, splashScreenComponent, routing, page, assets, host, req.headers, req.body)];
+                            case 7: return [4 /*yield*/, render_1.renderHtml(component, splashScreenComponent, routing, page, assets, host, requestDetail)];
                             case 8:
                                 html = _a.sent();
                                 res.send(html);
