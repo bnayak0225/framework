@@ -1,10 +1,9 @@
-"use strict";
 module.exports = {
     compact: true,
     presets: [
         [
             '@babel/preset-env',
-            { 'modules': false },
+            {'modules': false},
         ],
         '@babel/preset-react',
         '@babel/typescript',
@@ -17,6 +16,7 @@ module.exports = {
         '@babel/plugin-transform-runtime',
         'transform-require-context',
         "@babel/plugin-transform-react-jsx",
+
         'macros',
     ],
     env: {
@@ -25,18 +25,18 @@ module.exports = {
                 '@babel/transform-modules-commonjs',
                 '@babel/plugin-transform-runtime',
                 '@babel/syntax-dynamic-import',
-            ]
+            ],
         },
         tooling: {
             presets: [
                 [
                     '@babel/env',
                     {
-                        modules: 'commonjs'
+                        modules: 'commonjs',
                     },
                 ],
                 '@babel/typescript',
-            ]
-        }
-    }
+            ],
+        },
+    },
 };
