@@ -31,7 +31,6 @@ var mini_css_extract_plugin_1 = __importDefault(require("mini-css-extract-plugin
 var AssetsPlugin = require('assets-webpack-plugin');
 var Dotenv = require("dotenv-webpack");
 var config_1 = require("./config");
-var chunkSplit_1 = require("./Plugin/chunkSplit");
 var CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 var appDirectory = fs_1["default"].realpathSync(process_1["default"].cwd());
 var resolveAbsolutePath = function (relativePath) { return path_1["default"].resolve(appDirectory, relativePath); };
@@ -50,7 +49,8 @@ var resolve = {
         'react-router-dom': getDependencyPath('react-router-dom'),
         'react-i18next': getDependencyPath('react-i18next'),
         'i18next': getDependencyPath('i18next'),
-        'dirPage': path_1["default"].resolve(process_1["default"].cwd() + '/src')
+        'dirPage': path_1["default"].resolve(process_1["default"].cwd() + '/src'),
+        'buildServerPage': path_1["default"].resolve(process_1["default"].cwd() + '/build/server')
     }
 };
 var pages = findPage_1["default"]();
@@ -86,7 +86,7 @@ var serverConfig = function (port, environment) {
             filename: 'server/[name].js',
             path: resolveAbsolutePath('build'),
             publicPath: '/',
-            chunkFilename: 'server/chunk/[name].js',
+            chunkFilename: 'server/chunk/[id].js',
             libraryTarget: 'umd'
         },
         resolve: __assign({}, resolve),
@@ -144,6 +144,25 @@ var clientConfig = function (environment) {
         optimization: {
             runtimeChunk: { name: 'bootstrap-main/main' },
             minimize: true,
+            splitChunks: {
+                chunks: 'all',
+                minSize: 20000,
+                minChunks: 1,
+                maxAsyncRequests: 30,
+                maxInitialRequests: 30,
+                cacheGroups: {
+                    defaultVendors: {
+                        test: /[\\/]node_modules[\\/]/,
+                        priority: -10,
+                        reuseExistingChunk: true
+                    },
+                    "default": {
+                        minChunks: 2,
+                        priority: -20,
+                        reuseExistingChunk: true
+                    }
+                }
+            },
             minimizer: [
                 // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
                 // `...`
@@ -184,13 +203,13 @@ var clientConfig = function (environment) {
             // new PagesManifestPlugin('client'),
             new mini_css_extract_plugin_1["default"]({
                 filename: 'assets/css/[name].css',
-                chunkFilename: 'assets/css/[id].css'
+                chunkFilename: 'assets/css/[name].css'
             }),
             new ManifestPlugin({
                 fileName: 'assets/manifest.json'
             }),
             new nameChunk_1["default"](),
-            chunkSplit_1.ChunkSplit(customOptionList),
+            // ChunkSplit(customOptionList),
             new Dotenv({
                 path: "./.env",
                 safe: true,
