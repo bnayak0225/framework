@@ -25,7 +25,6 @@ module.exports = {
                 '@babel/transform-modules-commonjs',
                 '@babel/plugin-transform-runtime',
                 '@babel/syntax-dynamic-import',
-                '@babel/plugin-transform-runtime',
             ]
         },
         tooling: {

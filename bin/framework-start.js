@@ -53,8 +53,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 exports.__esModule = true;
 var compiler_1 = __importDefault(require("../build_ssr/compiler"));
 var constant_1 = require("../lib/constant");
-// require = require('esm')(module /*, options*/)
-// import arg from 'arg'
 var inquirer = require('inquirer');
 var argv = process.argv.slice(2);
 var option = {

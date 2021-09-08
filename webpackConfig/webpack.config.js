@@ -24,18 +24,13 @@ var findPage_1 = __importDefault(require("../lib/findPage"));
 var entries_1 = __importDefault(require("../lib/entries"));
 var import_1 = __importDefault(require("./Plugin/import"));
 var nameChunk_1 = __importDefault(require("./Plugin/nameChunk"));
-var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-var TerserPlugin = require('terser-webpack-plugin');
 var ManifestPlugin = require('webpack-manifest-plugin');
 var mini_css_extract_plugin_1 = __importDefault(require("mini-css-extract-plugin"));
-var AssetsPlugin = require('assets-webpack-plugin');
 var Dotenv = require("dotenv-webpack");
 var config_1 = require("./config");
 var CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 var appDirectory = fs_1["default"].realpathSync(process_1["default"].cwd());
 var resolveAbsolutePath = function (relativePath) { return path_1["default"].resolve(appDirectory, relativePath); };
-var resolveDirPath = function (relativePath) { return path_1["default"].resolve(__dirname, relativePath); };
-var publicPath = '/';
 var getDependencyPath = function (dependencyName) {
     return path_1["default"].join(__dirname, '..', '..', 'node_modules', dependencyName);
 };
@@ -45,8 +40,6 @@ var resolve = {
     alias: {
         'react': require.resolve('react'),
         'react-dom': require.resolve('react-dom'),
-        'react-router': getDependencyPath('react-router'),
-        'react-router-dom': getDependencyPath('react-router-dom'),
         'react-i18next': getDependencyPath('react-i18next'),
         'i18next': getDependencyPath('i18next'),
         'dirPage': path_1["default"].resolve(process_1["default"].cwd() + '/src'),
