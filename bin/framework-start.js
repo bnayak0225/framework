@@ -153,7 +153,7 @@ var checkOption = function (argv, option) {
                 _a.sent();
                 return [3 /*break*/, 9];
             case 8:
-                compiler_1["default"]();
+                compiler_1["default"](port);
                 _a.label = 9;
             case 9: return [2 /*return*/];
         }

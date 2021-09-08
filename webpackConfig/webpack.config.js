@@ -63,7 +63,7 @@ var customOptionList = [
     },
 ];
 var serverConfig = function (port, environment) {
-    var serverEntryPoint = __assign(__assign({}, entries_1["default"](pages)), { app: path_1["default"].join(__dirname, environment === "development" ? '../server/server.js?port=' + port : '../server/server.js') });
+    var serverEntryPoint = __assign(__assign({}, entries_1["default"](pages)), { app: path_1["default"].join(__dirname, port ? '../server/server.js?port=' + port : '../server/server.js') });
     return ({
         optimization: {
             nodeEnv: false
