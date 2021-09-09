@@ -75,7 +75,11 @@ var HeadHtml = function (headerData, routing, cssFileArray, host, requestDetail)
         }
         finally { if (e_1) throw e_1.error; }
     }
-    return ("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">" +
+    return ("<meta charset=\"utf-8\">" +
+        "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">" +
+        "<meta name=\"HandheldFriendly\" content=\"true\"> " +
+        "<meta name=\"MobileOptimized\" content=\"320\">" +
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0\">" +
         ("" + headerData) +
         ("<script>window.__INITIAL__DATA__ = " + JSON.stringify({ routing: routing }) + "</script>") +
         ("<script>window.client = " + true + "</script>") +

@@ -86,7 +86,7 @@ var checkOption = function (argv, option) {
     return option;
 };
 (function () { return __awaiter(void 0, void 0, void 0, function () {
-    var argOption, mode, port, question, answer, question, answer;
+    var argOption, mode, port, question, answer, question, answer, host;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -147,13 +147,16 @@ var checkOption = function (argv, option) {
                 }
                 _a.label = 6;
             case 6:
+                if (argOption["port"]) {
+                    host = argOption["port"];
+                }
                 if (!(mode === "start")) return [3 /*break*/, 8];
                 return [4 /*yield*/, require('../start_server/server').server(port)];
             case 7:
                 _a.sent();
                 return [3 /*break*/, 9];
             case 8:
-                compiler_1["default"](port);
+                compiler_1["default"](port, host);
                 _a.label = 9;
             case 9: return [2 /*return*/];
         }

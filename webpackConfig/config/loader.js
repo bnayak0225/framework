@@ -79,7 +79,7 @@ var Loader = {
         loader: require.resolve('url-loader'),
         options: {
             limit: 2048,
-            publicPath: "http://localhost:9000",
+            publicPath: "/",
             name: 'image/[name].[hash:8].[ext]',
             emitFile: false
         }

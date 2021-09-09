@@ -62,7 +62,7 @@ var customOptionList = [
         }
     },
 ];
-var serverConfig = function (port, environment) {
+var serverConfig = function (port, environment, host) {
     var serverEntryPoint = __assign(__assign({}, entries_1["default"](pages)), { app: path_1["default"].join(__dirname, port ? '../server/server.js?port=' + port : '../server/server.js') });
     return ({
         optimization: {
@@ -96,7 +96,7 @@ var serverConfig = function (port, environment) {
                     loader: 'babel-loader',
                     options: require('./babel.config.js'),
                     exclude: /node_modules/
-                }, __assign({}, config_1.Loader.cssServerLoader), __assign({}, config_1.Loader.urlServerLoader), __assign({}, config_1.Loader.fontFamilyServerLoader),]
+                }, __assign({}, config_1.Loader.cssServerLoader), __assign(__assign({}, config_1.Loader.urlServerLoader), { publicPath: host }), __assign({}, config_1.Loader.fontFamilyServerLoader),]
         },
         plugins: [
             // new PagesManifestPlugin('server'),
