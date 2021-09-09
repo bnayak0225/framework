@@ -96,7 +96,7 @@ var serverConfig = function (port, environment, host) {
                     loader: 'babel-loader',
                     options: require('./babel.config.js'),
                     exclude: /node_modules/
-                }, __assign({}, config_1.Loader.cssServerLoader), __assign(__assign({}, config_1.Loader.urlServerLoader), { publicPath: host }), __assign({}, config_1.Loader.fontFamilyServerLoader),]
+                }, __assign({}, config_1.Loader.cssServerLoader), __assign(__assign({}, config_1.Loader.urlServerLoader), { options: __assign(__assign({}, config_1.Loader.urlServerLoader.options), { publicPath: host }) }), __assign({}, config_1.Loader.fontFamilyServerLoader),]
         },
         plugins: [
             // new PagesManifestPlugin('server'),
