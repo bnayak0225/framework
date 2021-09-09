@@ -116,7 +116,7 @@ exports.server = function (port) { return __awaiter(void 0, void 0, void 0, func
     return __generator(this, function (_c) {
         switch (_c.label) {
             case 0:
-                serverConfiguration = webpack_config_1.serverConfig(port, "development");
+                serverConfiguration = webpack_config_1.serverConfig(port, "development", port ? "http://localhost:" + port : "http://localhost:9000");
                 clintConfiguration = webpack_config_1.clientConfig("development");
                 watchOptions = {
                     ignored: /node_modules/,
