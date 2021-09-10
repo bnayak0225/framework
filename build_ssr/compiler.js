@@ -39,7 +39,7 @@ var webpack_config_1 = require("../webpackConfig/webpack.config");
 var write_file_webpack_plugin_1 = __importDefault(require("write-file-webpack-plugin"));
 var compilerStart = function (port, host) {
     var hostUrl = host ? host : port ? "http://localhost:" + port : 'http://localhost:9000';
-    var serverWebpackConfig = __assign(__assign({}, webpack_config_1.serverConfig(port, "production", hostUrl)), { plugins: __spread(webpack_config_1.serverConfig("", "production", hostUrl).plugins), mode: 'production', performance: {
+    var serverWebpackConfig = __assign(__assign({}, webpack_config_1.serverConfig(port, "production", hostUrl)), { mode: 'production', performance: {
             hints: false
         } });
     var clientWebpackConfig = __assign(__assign({}, webpack_config_1.clientConfig("production")), { plugins: __spread(webpack_config_1.clientConfig("production").plugins, [
