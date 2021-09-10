@@ -58,7 +58,8 @@ var argv = process.argv.slice(2);
 var option = {
     start: false,
     build: false,
-    port: constant_1.DEFAULT_PORT
+    port: constant_1.DEFAULT_PORT,
+    host: "http://localhost:" + constant_1.DEFAULT_PORT
 };
 var checkOption = function (argv, option) {
     var e_1, _a;
@@ -71,7 +72,7 @@ var checkOption = function (argv, option) {
                     option[argKey] = true;
                 }
                 else {
-                    option[argKey] = typeof option[argKey] === "number" ? Number(arg.split(":")[1]) : arg.split(":")[1];
+                    option[argKey] = typeof option[argKey] === "number" ? Number(arg.split(":")[1]) : arg.split(":").slice(1).join(':');
                 }
             }
         }
@@ -147,8 +148,8 @@ var checkOption = function (argv, option) {
                 }
                 _a.label = 6;
             case 6:
-                if (argOption["port"]) {
-                    host = argOption["port"];
+                if (argOption["host"]) {
+                    host = argOption["host"];
                 }
                 if (!(mode === "start")) return [3 /*break*/, 8];
                 return [4 /*yield*/, require('../start_server/server').server(port)];

@@ -38,6 +38,7 @@ var webpack_1 = __importDefault(require("webpack"));
 var webpack_config_1 = require("../webpackConfig/webpack.config");
 var write_file_webpack_plugin_1 = __importDefault(require("write-file-webpack-plugin"));
 var compilerStart = function (port, host) {
+    console.log("Creating build, Please wait...");
     var hostUrl = host ? host : port ? "http://localhost:" + port : 'http://localhost:9000';
     var serverWebpackConfig = __assign(__assign({}, webpack_config_1.serverConfig(port, "production", hostUrl)), { mode: 'production', performance: {
             hints: false
