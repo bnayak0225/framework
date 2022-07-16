@@ -108,7 +108,7 @@ var App = /** @class */ (function (_super) {
 // App = hot(module)(App)
 var doRender = function (routing) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
-        react_dom_1.render(react_1["default"].createElement(App, { routing: routing }), document.getElementById('app'));
+        react_dom_1.hydrate(react_1["default"].createElement(App, { routing: routing }), document.getElementById('app'));
         return [2 /*return*/];
     });
 }); };

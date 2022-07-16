@@ -104,33 +104,32 @@ var ignoreFavicon = function (req, res, next) {
                 app.use("/", express.static('build'));
                 app.use(ignoreFavicon);
                 app.use("*", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-                    var requestDetail, routing, host, assets, splashScreenComponent, routeData_1, page, component, e_1, html;
-                    return __generator(this, function (_a) {
-                        switch (_a.label) {
+                    var requestDetail, routing, host, assets, splashScreenComponent, _a, routeData_1, page, component, e_1;
+                    return __generator(this, function (_b) {
+                        switch (_b.label) {
                             case 0:
                                 window.location.pathname = req.url;
                                 requestDetail = null;
                                 if (req.method === "POST") {
                                     // @ts-ignore
                                     requestDetail = { headers: req.headers, body: req.body };
-                                    window.location.requestDetail = requestDetail;
+                                    window.location["requestDetail"] = requestDetail;
                                 }
                                 routing = [];
                                 host = req.protocol + "://" + req.hostname + ":" + port;
                                 assets = res.locals;
-                                return [4 /*yield*/, dynamicImport_1["default"]("index.js", "splash")
-                                    //   }
-                                    //   else{
-                                    //     console.log("Splash index file is missing.")
-                                    //   }
-                                    //
-                                    // }
-                                ];
+                                _b.label = 1;
                             case 1:
-                                // let splashScreen = fs.readdirSync(path.resolve(process.cwd()+'/src/splash'));
-                                // if(splashScreen){
-                                //   if (fs.existsSync(path.resolve(process.cwd()+'/src/splash/index.js'))) {
-                                splashScreenComponent = _a.sent();
+                                _b.trys.push([1, 3, , 4]);
+                                return [4 /*yield*/, dynamicImport_1["default"]("index.js", "splash")];
+                            case 2:
+                                splashScreenComponent = _b.sent();
+                                return [3 /*break*/, 4];
+                            case 3:
+                                _a = _b.sent();
+                                console.log("No splash screen");
+                                return [3 /*break*/, 4];
+                            case 4:
                                 //   }
                                 //   else{
                                 //     console.log("Splash index file is missing.")
@@ -139,21 +138,27 @@ var ignoreFavicon = function (req, res, next) {
                                 // }
                                 try {
                                     routeData_1 = require('dirPage/route.json');
+                                    if (routeData_1.length === 0) {
+                                        throw new Error('Route file is empty');
+                                    }
                                     Object.keys(routeData_1).forEach(function (route, i) {
                                         if (!route) {
                                             console.log("Route url is missing");
                                         }
                                         if (!routeData_1[route]) {
-                                            console.warn("Route file is missing");
+                                            console.warn("Routed file in pages folder is missing");
                                         }
                                         routing.push({ "url": route, "file": routeData_1[route] });
                                     });
                                 }
                                 catch (e) {
-                                    // pages.map((page)=>{
-                                    //   let url = page.replace(/\.[^/.]+$/, "").toLowerCase()
-                                    //   routing.push({"url": `${url}${url!=="index"? "/*": ""}`, "file": page})
-                                    // })
+                                    pages.map(function (page) {
+                                        var url = page.replace(/\.[^/.]+$/, "").toLowerCase();
+                                        routing.push({ "url": "" + url + (url !== "index" ? "/*" : ""), "file": page });
+                                    });
+                                }
+                                if (pages.length === 0) {
+                                    throw new Error('No pages, add some js file to pages folder');
                                 }
                                 page = "";
                                 routing.map(function (path, i) {
@@ -161,22 +166,20 @@ var ignoreFavicon = function (req, res, next) {
                                         page = path.file;
                                     }
                                 });
-                                if (!!page) return [3 /*break*/, 2];
+                                if (!!page) return [3 /*break*/, 5];
                                 component = _404_1["default"];
-                                return [3 /*break*/, 5];
-                            case 2:
-                                _a.trys.push([2, 4, , 5]);
+                                return [3 /*break*/, 8];
+                            case 5:
+                                _b.trys.push([5, 7, , 8]);
                                 return [4 /*yield*/, dynamicImport_1["default"](page)];
-                            case 3:
-                                component = _a.sent();
-                                return [3 /*break*/, 5];
-                            case 4:
-                                e_1 = _a.sent();
-                                throw new Error('File not found: ' + page);
-                            case 5: return [4 /*yield*/, render_1.renderHtml(component, splashScreenComponent, routing, page, assets, host, requestDetail)];
                             case 6:
-                                html = _a.sent();
-                                res.send(html);
+                                component = _b.sent();
+                                return [3 /*break*/, 8];
+                            case 7:
+                                e_1 = _b.sent();
+                                throw new Error('File not found: ' + page);
+                            case 8:
+                                render_1.renderHtml(res, component, splashScreenComponent, routing, assets, host, requestDetail);
                                 return [2 /*return*/];
                         }
                     });

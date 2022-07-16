@@ -52,7 +52,7 @@ exports.__esModule = true;
 var react_1 = __importStar(require("react"));
 var context_1 = __importDefault(require("./context"));
 var Provider = react_1.memo(function (_a) {
-    var initialState = _a.initialState, children = _a.children;
+    var initialState = _a.initialState, initialProps = _a.initialProps, children = _a.children;
     var Context = context_1["default"];
     // let state=initialState
     var _b = __read(react_1.useState({}), 2), state = _b[0], setState = _b[1];

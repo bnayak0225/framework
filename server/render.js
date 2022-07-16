@@ -54,8 +54,8 @@ exports.renderHtml = void 0;
 var react_1 = __importDefault(require("react"));
 var server_1 = require("react-dom/server");
 var main_1 = __importDefault(require("./main"));
-var Head_1 = require("../Head/Head");
-var HeadHtml = function (headerData, routing, cssFileArray, host, requestDetail) {
+var Head_1 = require("../Head");
+var HeaderHtml = function (headerData, routing, cssFileArray, host, requestDetail) {
     var e_1, _a;
     if (cssFileArray === void 0) { cssFileArray = []; }
     // cssFileArray.map(css=>{
@@ -86,42 +86,62 @@ var HeadHtml = function (headerData, routing, cssFileArray, host, requestDetail)
         ("<script>window.location.requestDetail = " + (requestDetail ? JSON.stringify(requestDetail) : null) + "</script>") +
         ("" + cssFile));
 };
-var HtmlContainer = function (appHtml, splasHtml, headerData, routing, page, jsArray, cssArray, host, requestDetail) {
-    if (jsArray === void 0) { jsArray = []; }
+var TopHtmlContainer = function (splasHtml, headerData, routing, cssArray, host, requestDetail) {
     if (cssArray === void 0) { cssArray = []; }
-    return __awaiter(void 0, void 0, void 0, function () {
-        var headHtml;
-        return __generator(this, function (_a) {
-            headHtml = HeadHtml(headerData, routing, cssArray, host, requestDetail);
-            return [2 /*return*/, (react_1["default"].createElement(react_1["default"].Fragment, null,
-                    react_1["default"].createElement("html", null,
-                        react_1["default"].createElement("head", { dangerouslySetInnerHTML: { __html: headHtml } }),
-                        react_1["default"].createElement("body", null,
-                            react_1["default"].createElement("div", { id: "slash-screen", dangerouslySetInnerHTML: { __html: splasHtml } }),
-                            react_1["default"].createElement("div", { id: "app", dangerouslySetInnerHTML: { __html: appHtml } }),
-                            react_1["default"].createElement("script", null),
-                            jsArray.map(function (file, i) {
-                                return (react_1["default"].createElement("script", { key: i, src: host + "/" + file.replace("/client/", "") }));
-                            })))))];
-        });
-    });
+    var headHtml = HeaderHtml(headerData, routing, cssArray, host, requestDetail);
+    return ("<html>" +
+        ("<head>" + headHtml + "</head>") +
+        "<body>" +
+        // `<div id="slash-screen">${splasHtml}</div>`+
+        "<div id=\"app\">");
 };
-var renderHtml = function (component, SplashScreenComponent, routing, page, assets, host, requestDetail) { return __awaiter(void 0, void 0, void 0, function () {
-    var appHtml, splashScreen, headTag, jsArray, cssArray, _a, _b;
-    return __generator(this, function (_c) {
-        switch (_c.label) {
+var BottomHtmlContainer = function (jsArray, host) {
+    var e_2, _a;
+    if (jsArray === void 0) { jsArray = []; }
+    var jsFile = "";
+    try {
+        for (var jsArray_1 = __values(jsArray), jsArray_1_1 = jsArray_1.next(); !jsArray_1_1.done; jsArray_1_1 = jsArray_1.next()) {
+            var js = jsArray_1_1.value;
+            jsFile = jsFile + ("<script src=\"" + host + "/" + js.replace("/client/", "") + "\"></script>");
+        }
+    }
+    catch (e_2_1) { e_2 = { error: e_2_1 }; }
+    finally {
+        try {
+            if (jsArray_1_1 && !jsArray_1_1.done && (_a = jsArray_1["return"])) _a.call(jsArray_1);
+        }
+        finally { if (e_2) throw e_2.error; }
+    }
+    return ("</div>" +
+        ("" + jsFile) +
+        "</body>" +
+        "</html>");
+};
+var renderHtml = function (res, component, SplashScreenComponent, routing, assets, host, requestDetail) { return __awaiter(void 0, void 0, void 0, function () {
+    var splashScreen, jsArray, cssArray, initialAsyncProps, App, headTag, topHtml, botHtml, htmlStream;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
             case 0:
-                appHtml = server_1.renderToString(react_1["default"].createElement(main_1["default"], { page: component }));
                 if (SplashScreenComponent) {
                     splashScreen = server_1.renderToString(react_1["default"].createElement(SplashScreenComponent, null));
                 }
-                headTag = Head_1.ClientToServer.getState();
                 jsArray = assets.getJavascripts();
                 cssArray = assets.getStylesheetSources();
-                _a = "<!doctype html>";
-                _b = server_1.renderToString;
-                return [4 /*yield*/, HtmlContainer(appHtml, splashScreen, headTag, routing, page, jsArray, cssArray, host, requestDetail)];
-            case 1: return [2 /*return*/, _a + _b.apply(void 0, [_c.sent()])];
+                return [4 /*yield*/, component.getInitialProps()];
+            case 1:
+                initialAsyncProps = _a.sent();
+                App = component;
+                headTag = Head_1.Head.getState();
+                topHtml = TopHtmlContainer(splashScreen, headTag, routing, cssArray, host, requestDetail);
+                botHtml = BottomHtmlContainer(jsArray, host);
+                res.write(topHtml);
+                htmlStream = server_1.renderToPipeableStream(react_1["default"].createElement(main_1["default"], { page: App, initialProps: initialAsyncProps }));
+                htmlStream.pipe(res, { end: false });
+                htmlStream.on("end", function () {
+                    res.write(botHtml);
+                    res.end();
+                });
+                return [2 /*return*/];
         }
     });
 }); };
