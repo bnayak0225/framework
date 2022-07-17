@@ -108,7 +108,7 @@ var ignoreFavicon = function (req, res, next) {
                     return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0:
-                                window.location.pathname = req.url;
+                                window.location.pathname = req.originalUrl;
                                 requestDetail = null;
                                 if (req.method === "POST") {
                                     // @ts-ignore
@@ -162,7 +162,7 @@ var ignoreFavicon = function (req, res, next) {
                                 }
                                 page = "";
                                 routing.map(function (path, i) {
-                                    if (validatePath_1["default"](path.url, req.url)) {
+                                    if (validatePath_1["default"](path.url, req.originalUrl)) {
                                         page = path.file;
                                     }
                                 });

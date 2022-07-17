@@ -133,11 +133,9 @@ var renderHtml = function (res, component, SplashScreenComponent, routing, asset
                 return [4 /*yield*/, component.getInitialProps()];
             case 2:
                 initialAsyncProps = _a.sent();
-                console.log(initialAsyncProps);
                 return [3 /*break*/, 4];
             case 3:
                 e_3 = _a.sent();
-                console.log(e_3);
                 return [3 /*break*/, 4];
             case 4:
                 App = component;
