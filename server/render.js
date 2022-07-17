@@ -118,7 +118,7 @@ var BottomHtmlContainer = function (jsArray, host) {
         "</html>");
 };
 var renderHtml = function (res, component, SplashScreenComponent, routing, assets, host, requestDetail) { return __awaiter(void 0, void 0, void 0, function () {
-    var splashScreen, jsArray, cssArray, initialAsyncProps, App, headTag, topHtml, botHtml, htmlStream;
+    var splashScreen, jsArray, cssArray, initialAsyncProps, e_3, App, headTag, topHtml, botHtml, htmlStream;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -127,9 +127,19 @@ var renderHtml = function (res, component, SplashScreenComponent, routing, asset
                 }
                 jsArray = assets.getJavascripts();
                 cssArray = assets.getStylesheetSources();
-                return [4 /*yield*/, component.getInitialProps()];
+                _a.label = 1;
             case 1:
+                _a.trys.push([1, 3, , 4]);
+                return [4 /*yield*/, component.getInitialProps()];
+            case 2:
                 initialAsyncProps = _a.sent();
+                console.log(initialAsyncProps);
+                return [3 /*break*/, 4];
+            case 3:
+                e_3 = _a.sent();
+                console.log(e_3);
+                return [3 /*break*/, 4];
+            case 4:
                 App = component;
                 headTag = Head_1.Head.getState();
                 topHtml = TopHtmlContainer(splashScreen, headTag, routing, cssArray, host, requestDetail);
