@@ -117,7 +117,7 @@ var BottomHtmlContainer = function (jsArray, host) {
         "</body>" +
         "</html>");
 };
-var renderHtml = function (res, component, SplashScreenComponent, routing, assets, host, requestDetail) { return __awaiter(void 0, void 0, void 0, function () {
+var renderHtml = function (res, component, SplashScreenComponent, routing, assets, host, requestDetail, params) { return __awaiter(void 0, void 0, void 0, function () {
     var splashScreen, jsArray, cssArray, initialAsyncProps, e_3, App, headTag, topHtml, botHtml, htmlStream;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -130,7 +130,7 @@ var renderHtml = function (res, component, SplashScreenComponent, routing, asset
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, component.getInitialProps()];
+                return [4 /*yield*/, component.getInitialProps({ params: params })];
             case 2:
                 initialAsyncProps = _a.sent();
                 return [3 /*break*/, 4];
