@@ -56,7 +56,7 @@ var server_1 = require("react-dom/server");
 var main_1 = __importDefault(require("./main"));
 var Head_1 = require("../Head");
 var HeaderHtml = function (headerData, routing, cssFileArray, jsArray, host, requestDetail) {
-    var e_1, _a, e_2, _b;
+    var e_1, _a;
     if (cssFileArray === void 0) { cssFileArray = []; }
     if (jsArray === void 0) { jsArray = []; }
     // cssFileArray.map(css=>{
@@ -76,20 +76,10 @@ var HeaderHtml = function (headerData, routing, cssFileArray, jsArray, host, req
         }
         finally { if (e_1) throw e_1.error; }
     }
-    var jsFile = "";
-    try {
-        for (var jsArray_1 = __values(jsArray), jsArray_1_1 = jsArray_1.next(); !jsArray_1_1.done; jsArray_1_1 = jsArray_1.next()) {
-            var js = jsArray_1_1.value;
-            jsFile = jsFile + ("<script src=\"" + host + "/" + js.replace("/client/", "") + "\" defer></script>");
-        }
-    }
-    catch (e_2_1) { e_2 = { error: e_2_1 }; }
-    finally {
-        try {
-            if (jsArray_1_1 && !jsArray_1_1.done && (_b = jsArray_1["return"])) _b.call(jsArray_1);
-        }
-        finally { if (e_2) throw e_2.error; }
-    }
+    // let jsFile = ""
+    // for(const js of jsArray){
+    //     jsFile = jsFile+`<script src="${host}/${js.replace("/client/", "")}" defer></script>`
+    // }
     return ("<meta charset=\"utf-8\">" +
         "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">" +
         "<meta name=\"HandheldFriendly\" content=\"true\"> " +
@@ -99,8 +89,7 @@ var HeaderHtml = function (headerData, routing, cssFileArray, jsArray, host, req
         ("<script>window.__INITIAL__DATA__ = " + JSON.stringify({ routing: routing }) + "</script>") +
         ("<script>window.client = " + true + "</script>") +
         ("<script>window.location.requestDetail = " + (requestDetail ? JSON.stringify(requestDetail) : null) + "</script>") +
-        ("" + cssFile) +
-        ("" + jsFile));
+        ("" + cssFile));
 };
 var TopHtmlContainer = function (splasHtml, headerData, routing, cssArray, jsArray, host, requestDetail) {
     if (cssArray === void 0) { cssArray = []; }
@@ -108,24 +97,33 @@ var TopHtmlContainer = function (splasHtml, headerData, routing, cssArray, jsArr
     return ("<html>" +
         ("<head>" + headHtml + "</head>") +
         "<body>" +
-        // `<div id="slash-screen">${splasHtml}</div>`+
-        "<div id=\"app\">");
+        ("<div id=\"slash-screen\">" + splasHtml + "</div>") +
+        "<div id=\"root\">");
 };
-// const BottomHtmlContainer = (jsArray:any[]=[],host) =>{
-//     let jsFile = ""
-//     for(const js of jsArray){
-//         jsFile = jsFile+`<script src="${host}/${js.replace("/client/", "")}"></script>`
-//     }
-//
-//     return(
-//         `</div>`+
-//         `${jsFile}`+
-//                 `</body>`+
-//             `</html>`
-//     )
-// }
+var BottomHtmlContainer = function (jsArray, host) {
+    var e_2, _a;
+    if (jsArray === void 0) { jsArray = []; }
+    var jsFile = "";
+    try {
+        for (var jsArray_1 = __values(jsArray), jsArray_1_1 = jsArray_1.next(); !jsArray_1_1.done; jsArray_1_1 = jsArray_1.next()) {
+            var js = jsArray_1_1.value;
+            jsFile = jsFile + ("<script src=\"" + host + "/" + js.replace("/client/", "") + "\"></script>");
+        }
+    }
+    catch (e_2_1) { e_2 = { error: e_2_1 }; }
+    finally {
+        try {
+            if (jsArray_1_1 && !jsArray_1_1.done && (_a = jsArray_1["return"])) _a.call(jsArray_1);
+        }
+        finally { if (e_2) throw e_2.error; }
+    }
+    return ("</div>" +
+        ("" + jsFile) +
+        "</body>" +
+        "</html>");
+};
 var renderHtml = function (res, component, SplashScreenComponent, routing, assets, host, requestDetail, params) { return __awaiter(void 0, void 0, void 0, function () {
-    var splashScreen, jsArray, cssArray, initialAsyncProps, e_3, App, headTag, topHtml, htmlStream;
+    var splashScreen, jsArray, cssArray, initialAsyncProps, e_3, App, headTag, topHtml, botHtml, mid, html;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -148,13 +146,12 @@ var renderHtml = function (res, component, SplashScreenComponent, routing, asset
                 App = component;
                 headTag = Head_1.Head.getState();
                 topHtml = TopHtmlContainer(splashScreen, headTag, routing, cssArray, jsArray, host, requestDetail);
-                // const botHtml = BottomHtmlContainer(jsArray, host)
-                res.write(topHtml);
-                htmlStream = server_1.renderToPipeableStream(react_1["default"].createElement(main_1["default"], { page: App, initialProps: initialAsyncProps }), {
-                    onShellReady: function () {
-                        htmlStream.pipe(res, { end: false });
-                    }
-                });
+                botHtml = BottomHtmlContainer(jsArray, host);
+                mid = server_1.renderToString(react_1["default"].createElement(main_1["default"], { page: App, initialProps: initialAsyncProps }));
+                html = topHtml + mid + botHtml;
+                res.contentType('text/html');
+                res.status(200);
+                res.send(html);
                 return [2 /*return*/];
         }
     });

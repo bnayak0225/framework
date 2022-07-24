@@ -107,8 +107,14 @@ var App = /** @class */ (function (_super) {
 ;
 // App = hot(module)(App)
 var doRender = function (routing) { return __awaiter(void 0, void 0, void 0, function () {
+    var container;
     return __generator(this, function (_a) {
-        client_1.hydrateRoot(document.getElementById('app'), react_1["default"].createElement(App, { routing: routing }));
+        try {
+            container = document.querySelector('#root');
+            client_1.createRoot(container).render(react_1["default"].createElement(App, { routing: routing }));
+        }
+        catch (e) {
+        }
         return [2 /*return*/];
     });
 }); };
@@ -145,9 +151,8 @@ var doRender = function (routing) { return __awaiter(void 0, void 0, void 0, fun
             case 3:
                 i++;
                 return [3 /*break*/, 1];
-            case 4: return [4 /*yield*/, doRender(route)];
-            case 5:
-                _a.sent();
+            case 4:
+                doRender(route);
                 return [2 /*return*/];
         }
     });
