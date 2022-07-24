@@ -80,7 +80,7 @@ var HeaderHtml = function (headerData, routing, cssFileArray, jsArray, host, req
     try {
         for (var jsArray_1 = __values(jsArray), jsArray_1_1 = jsArray_1.next(); !jsArray_1_1.done; jsArray_1_1 = jsArray_1.next()) {
             var js = jsArray_1_1.value;
-            jsFile = jsFile + ("<script src=\"" + host + "/" + js.replace("/client/", "") + "\"></script>");
+            jsFile = jsFile + ("<script src=\"" + host + "/" + js.replace("/client/", "") + "\" defer></script>");
         }
     }
     catch (e_2_1) { e_2 = { error: e_2_1 }; }

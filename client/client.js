@@ -53,7 +53,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 exports.__esModule = true;
 var react_1 = __importDefault(require("react"));
-var react_dom_1 = require("react-dom");
+var client_1 = require("react-dom/client");
 var dynamicImport_1 = __importDefault(require("../lib/dynamicImport"));
 var Route_1 = require("../router/Route");
 var Router_1 = require("../router/Router");
@@ -108,7 +108,7 @@ var App = /** @class */ (function (_super) {
 // App = hot(module)(App)
 var doRender = function (routing) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
-        react_dom_1.hydrate(react_1["default"].createElement(App, { routing: routing }), document.getElementById('app'));
+        client_1.hydrateRoot(document.getElementById('app'), react_1["default"].createElement(App, { routing: routing }));
         return [2 /*return*/];
     });
 }); };
@@ -145,8 +145,9 @@ var doRender = function (routing) { return __awaiter(void 0, void 0, void 0, fun
             case 3:
                 i++;
                 return [3 /*break*/, 1];
-            case 4:
-                doRender(route);
+            case 4: return [4 /*yield*/, doRender(route)];
+            case 5:
+                _a.sent();
                 return [2 /*return*/];
         }
     });

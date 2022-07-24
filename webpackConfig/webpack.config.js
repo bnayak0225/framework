@@ -39,7 +39,7 @@ var resolve = {
     modules: ['src', 'node_modules'],
     alias: {
         'react': require.resolve('react'),
-        'react-dom': require.resolve('react-dom'),
+        'react-dom/client': require.resolve('react-dom/client'),
         'react-i18next': getDependencyPath('react-i18next'),
         'i18next': getDependencyPath('i18next'),
         'dirPage': path_1["default"].resolve(process_1["default"].cwd() + '/src'),

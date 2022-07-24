@@ -64,15 +64,15 @@
     "webpack-manifest-plugin": "2.2.0"
   },
   "peerDependencies": {
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0"
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   },
   "bin": {
     "framework": "./bin/framework-start.js"
   },
   "devDependencies": {
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react": "18.1.0",
+    "react-dom": "18.1.0"
   },
   "engines": {
     "node": ">=10.13.0"
