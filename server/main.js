@@ -25,6 +25,6 @@ var AppServer = function (_a) {
     var page = _a.page, initialProps = _a.initialProps;
     var Page = page;
     return (React.createElement(reactState_1.Provider, { initialState: initialProps },
-        React.createElement(Page, { initialProps: initialProps })));
+        React.createElement(Page, null)));
 };
 exports["default"] = AppServer;
