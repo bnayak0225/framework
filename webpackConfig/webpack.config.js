@@ -24,7 +24,7 @@ var findPage_1 = __importDefault(require("../lib/findPage"));
 var entries_1 = __importDefault(require("../lib/entries"));
 var import_1 = __importDefault(require("./Plugin/import"));
 var nameChunk_1 = __importDefault(require("./Plugin/nameChunk"));
-var WebpackAssetsManifest = require('webpack-assets-manifest');
+var ManifestPlugin = require('webpack-manifest-plugin');
 var mini_css_extract_plugin_1 = __importDefault(require("mini-css-extract-plugin"));
 var Dotenv = require("dotenv-webpack");
 var config_1 = require("./config");
@@ -198,7 +198,9 @@ var clientConfig = function (environment) {
                 filename: 'assets/css/[name].css',
                 chunkFilename: 'assets/css/[name].css'
             }),
-            new WebpackAssetsManifest(),
+            new ManifestPlugin({
+                fileName: 'assets/manifest.json'
+            }),
             new nameChunk_1["default"](),
             // ChunkSplit(customOptionList),
             new Dotenv({

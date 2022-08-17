@@ -108,7 +108,7 @@ var ignoreFavicon = function (req, res, next) {
                 app.use(body_parser_1["default"].urlencoded({ extended: true }));
                 appDirectory = fs_1["default"].realpathSync(process.cwd());
                 app.use(express_manifest_helpers_1["default"]({
-                    manifestPath: path_1["default"].resolve(appDirectory, 'build/manifest.json')
+                    manifestPath: path_1["default"].resolve(appDirectory, 'build/assets/manifest.json')
                 }));
                 app.use("/", express.static('build/assets'));
                 app.use("/", express.static('build/client'));
