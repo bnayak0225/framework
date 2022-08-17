@@ -34,7 +34,7 @@
     "history": "5.0.0",
     "inquirer": "7.3.3",
     "jsdom": "16.3.0",
-    "mini-css-extract-plugin": "0.7.0",
+    "mini-css-extract-plugin": "0.4.2",
     "nodemon": "^2.0.12",
     "postcss": "^8.3.6",
     "postcss-assets": "5.0.0",
