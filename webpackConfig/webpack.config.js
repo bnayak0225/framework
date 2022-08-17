@@ -198,9 +198,7 @@ var clientConfig = function (environment) {
                 filename: 'assets/css/[name].css',
                 chunkFilename: 'assets/css/[name].css'
             }),
-            new WebpackAssetsManifest({
-                output: 'assets/manifest.json'
-            }),
+            new WebpackAssetsManifest(),
             new nameChunk_1["default"](),
             // ChunkSplit(customOptionList),
             new Dotenv({
