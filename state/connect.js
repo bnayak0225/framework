@@ -29,10 +29,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 exports.__esModule = true;
 exports.Connect = void 0;
 var react_1 = __importStar(require("react"));
 var useStateContext_1 = require("./useStateContext");
+var serverProvider_1 = __importDefault(require("../server/serverProvider"));
 var Connect = function (getState, setState) {
     // let getState
     return function (WrappedComponent) {
@@ -40,7 +44,14 @@ var Connect = function (getState, setState) {
             var context = useStateContext_1.useStateContext();
             var store = function () {
                 var state = context.state, dispatch = context.dispatch;
-                console.log("state", state);
+                try {
+                    if (!window.client) {
+                        state = __assign(__assign({}, serverProvider_1["default"].GetTotalCount()), state);
+                    }
+                }
+                catch (e) {
+                }
+                console.log(state);
                 var getState = function () {
                     return state;
                 };
