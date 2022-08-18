@@ -115,7 +115,7 @@ var ignoreFavicon = function (req, res, next) {
                 app.use("/", express.static('build'));
                 app.use(ignoreFavicon);
                 app.use("*", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-                    var requestDetail, routing, host, assets, splashScreenComponent, _a, routeData_1, page, params, component, e_1;
+                    var requestDetail, routing, host, assets, splashScreenComponent, _a, routeData_1, page, params, component, e_1, initialAsyncProps, e_2;
                     return __generator(this, function (_b) {
                         switch (_b.label) {
                             case 0:
@@ -193,7 +193,23 @@ var ignoreFavicon = function (req, res, next) {
                                 e_1 = _b.sent();
                                 throw new Error('File not found: ' + page);
                             case 8:
-                                render_1.renderHtml(res, component, splashScreenComponent, routing, assets, host, requestDetail, params);
+                                initialAsyncProps = {};
+                                _b.label = 9;
+                            case 9:
+                                _b.trys.push([9, 11, , 12]);
+                                return [4 /*yield*/, component.getInitialProps({ params: params })];
+                            case 10:
+                                initialAsyncProps = (_b.sent()) || {};
+                                return [3 /*break*/, 12];
+                            case 11:
+                                e_2 = _b.sent();
+                                return [3 /*break*/, 12];
+                            case 12:
+                                window["initialServerState"] = initialAsyncProps;
+                                window["client"] = false;
+                                return [4 /*yield*/, render_1.renderHtml(res, component, splashScreenComponent, routing, assets, host, requestDetail, params, initialAsyncProps)];
+                            case 13:
+                                _b.sent();
                                 return [2 /*return*/];
                         }
                     });

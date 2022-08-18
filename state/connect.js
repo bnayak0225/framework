@@ -40,6 +40,7 @@ var Connect = function (getState, setState) {
             var context = useStateContext_1.useStateContext();
             var store = function () {
                 var state = context.state, dispatch = context.dispatch;
+                console.log("state", state);
                 var getState = function () {
                     return state;
                 };

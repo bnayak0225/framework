@@ -123,38 +123,24 @@ var BottomHtmlContainer = function (jsArray, host) {
         "</body>" +
         "</html>");
 };
-var renderHtml = function (res, component, SplashScreenComponent, routing, assets, host, requestDetail, params) { return __awaiter(void 0, void 0, void 0, function () {
-    var splashScreen, jsArray, cssArray, initialAsyncProps, e_3, App, headTag, topHtml, botHtml, mid, html;
+var renderHtml = function (res, component, SplashScreenComponent, routing, assets, host, requestDetail, params, initialAsyncProps) { return __awaiter(void 0, void 0, void 0, function () {
+    var splashScreen, jsArray, cssArray, App, headTag, topHtml, botHtml, mid, html;
     return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                if (SplashScreenComponent) {
-                    splashScreen = server_1.renderToString(react_1["default"].createElement(SplashScreenComponent, null));
-                }
-                jsArray = assets.getJavascripts();
-                cssArray = assets.getStylesheetSources();
-                _a.label = 1;
-            case 1:
-                _a.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, component.getInitialProps({ params: params })];
-            case 2:
-                initialAsyncProps = _a.sent();
-                return [3 /*break*/, 4];
-            case 3:
-                e_3 = _a.sent();
-                return [3 /*break*/, 4];
-            case 4:
-                App = component;
-                headTag = Head_1.Head.getState();
-                topHtml = TopHtmlContainer(splashScreen, headTag, routing, cssArray, jsArray, host, requestDetail, initialAsyncProps);
-                botHtml = BottomHtmlContainer(jsArray, host);
-                mid = server_1.renderToString(react_1["default"].createElement(main_1["default"], { page: App, initialProps: initialAsyncProps }));
-                html = topHtml + mid + botHtml;
-                res.contentType('text/html');
-                res.status(200);
-                res.send(html);
-                return [2 /*return*/];
+        if (SplashScreenComponent) {
+            splashScreen = server_1.renderToString(react_1["default"].createElement(SplashScreenComponent, null));
         }
+        jsArray = assets.getJavascripts();
+        cssArray = assets.getStylesheetSources();
+        App = component;
+        headTag = Head_1.Head.getState();
+        topHtml = TopHtmlContainer(splashScreen, headTag, routing, cssArray, jsArray, host, requestDetail, initialAsyncProps);
+        botHtml = BottomHtmlContainer(jsArray, host);
+        mid = server_1.renderToString(react_1["default"].createElement(main_1["default"], { page: App, initialProps: initialAsyncProps }));
+        html = topHtml + mid + botHtml;
+        res.contentType('text/html');
+        res.status(200);
+        res.send(html);
+        return [2 /*return*/];
     });
 }); };
 exports.renderHtml = renderHtml;
