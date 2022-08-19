@@ -25,18 +25,18 @@ module.exports = {
                 '@babel/transform-modules-commonjs',
                 '@babel/plugin-transform-runtime',
                 '@babel/syntax-dynamic-import',
-            ]
+            ],
         },
         tooling: {
             presets: [
                 [
                     '@babel/env',
                     {
-                        modules: 'commonjs'
+                        modules: 'commonjs',
                     },
                 ],
                 '@babel/typescript',
-            ]
-        }
-    }
+            ],
+        },
+    },
 };

@@ -30,7 +30,7 @@ var __spread = (this && this.__spread) || function () {
     for (var ar = [], i = 0; i < arguments.length; i++) ar = ar.concat(__read(arguments[i]));
     return ar;
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.ChunkSplit = void 0;
 var PLUGIN_NAME = 'ChunkSplit';
 // modified from: https://github.com/webpack/webpack/blob/00f70fc65cab43d682c80264c959eff81db531b4/lib/optimize/SplitChunksPlugin.js
@@ -236,7 +236,7 @@ var customSplitChunk = function (compilation, chunkList) {
         catch (e_5_1) { e_5 = { error: e_5_1 }; }
         finally {
             try {
-                if (_c && !_c.done && (_a = _b["return"])) _a.call(_b);
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
             }
             finally { if (e_5) throw e_5.error; }
         }
@@ -254,7 +254,7 @@ var customSplitChunk = function (compilation, chunkList) {
     catch (e_1_1) { e_1 = { error: e_1_1 }; }
     finally {
         try {
-            if (otherChunk_1_1 && !otherChunk_1_1.done && (_a = otherChunk_1["return"])) _a.call(otherChunk_1);
+            if (otherChunk_1_1 && !otherChunk_1_1.done && (_a = otherChunk_1.return)) _a.call(otherChunk_1);
         }
         finally { if (e_1) throw e_1.error; }
     }
@@ -271,7 +271,7 @@ var customSplitChunk = function (compilation, chunkList) {
             catch (e_3_1) { e_3 = { error: e_3_1 }; }
             finally {
                 try {
-                    if (otherChunk_2_1 && !otherChunk_2_1.done && (_c = otherChunk_2["return"])) _c.call(otherChunk_2);
+                    if (otherChunk_2_1 && !otherChunk_2_1.done && (_c = otherChunk_2.return)) _c.call(otherChunk_2);
                 }
                 finally { if (e_3) throw e_3.error; }
             }
@@ -280,7 +280,7 @@ var customSplitChunk = function (compilation, chunkList) {
     catch (e_2_1) { e_2 = { error: e_2_1 }; }
     finally {
         try {
-            if (moduleSet_1_1 && !moduleSet_1_1.done && (_b = moduleSet_1["return"])) _b.call(moduleSet_1);
+            if (moduleSet_1_1 && !moduleSet_1_1.done && (_b = moduleSet_1.return)) _b.call(moduleSet_1);
         }
         finally { if (e_2) throw e_2.error; }
     }
@@ -293,7 +293,7 @@ var customSplitChunk = function (compilation, chunkList) {
     catch (e_4_1) { e_4 = { error: e_4_1 }; }
     finally {
         try {
-            if (moduleList_1_1 && !moduleList_1_1.done && (_d = moduleList_1["return"])) _d.call(moduleList_1);
+            if (moduleList_1_1 && !moduleList_1_1.done && (_d = moduleList_1.return)) _d.call(moduleList_1);
         }
         finally { if (e_4) throw e_4.error; }
     }

@@ -12,7 +12,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = require("react");
 var ErrorBoundary = /** @class */ (function (_super) {
     __extends(ErrorBoundary, _super);
@@ -21,7 +21,7 @@ var ErrorBoundary = /** @class */ (function (_super) {
         _this.state = {
             error: [],
             errorInfo: [],
-            hasError: false
+            hasError: false,
         };
         _this.callBackFunction = _this.callBackFunction.bind(_this);
         ErrorBoundary._that = _this;
@@ -99,4 +99,4 @@ var ErrorBoundary = /** @class */ (function (_super) {
     };
     return ErrorBoundary;
 }(react_1.Component));
-exports["default"] = ErrorBoundary;
+exports.default = ErrorBoundary;

@@ -2,11 +2,11 @@
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var webpack_1 = __importDefault(require("webpack"));
 var compiler = function (config, option) {
     return new Promise(function (resolve) {
-        var compiler = webpack_1["default"](config);
+        var compiler = webpack_1.default(config);
         compiler.watch(option, function (error, stats) {
             if (!error && !stats.hasErrors()) {
                 // console.log(stats.toString(config.stats));
@@ -26,4 +26,4 @@ var compiler = function (config, option) {
         });
     });
 };
-exports["default"] = compiler;
+exports.default = compiler;

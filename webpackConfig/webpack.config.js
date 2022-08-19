@@ -13,7 +13,7 @@ var __assign = (this && this.__assign) || function () {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.clientConfig = exports.serverConfig = void 0;
 var path_1 = __importDefault(require("path"));
 var webpack_1 = __importDefault(require("webpack"));
@@ -29,10 +29,10 @@ var mini_css_extract_plugin_1 = __importDefault(require("mini-css-extract-plugin
 var Dotenv = require("dotenv-webpack");
 var config_1 = require("./config");
 var CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-var appDirectory = fs_1["default"].realpathSync(process_1["default"].cwd());
-var resolveAbsolutePath = function (relativePath) { return path_1["default"].resolve(appDirectory, relativePath); };
+var appDirectory = fs_1.default.realpathSync(process_1.default.cwd());
+var resolveAbsolutePath = function (relativePath) { return path_1.default.resolve(appDirectory, relativePath); };
 var getDependencyPath = function (dependencyName) {
-    return path_1["default"].join(__dirname, '..', '..', 'node_modules', dependencyName);
+    return path_1.default.join(__dirname, '..', '..', 'node_modules', dependencyName);
 };
 var resolve = {
     extensions: ['.js', '.json', '.jsx', '.ts', '.tsx', '.css'],
@@ -42,12 +42,12 @@ var resolve = {
         'react-dom/client': require.resolve('react-dom/client'),
         'react-i18next': getDependencyPath('react-i18next'),
         'i18next': getDependencyPath('i18next'),
-        'dirPage': path_1["default"].resolve(process_1["default"].cwd() + '/src'),
-        'buildServerPage': path_1["default"].resolve(process_1["default"].cwd() + '/build/server')
-    }
+        'dirPage': path_1.default.resolve(process_1.default.cwd() + '/src'),
+        'buildServerPage': path_1.default.resolve(process_1.default.cwd() + '/build/server'),
+    },
 };
-var pages = findPage_1["default"]();
-var clientEntryPoint = __assign(__assign({}, entries_1["default"](pages)), { app: path_1["default"].join(__dirname, '../client/client.js') });
+var pages = findPage_1.default();
+var clientEntryPoint = __assign(__assign({}, entries_1.default(pages)), { app: path_1.default.join(__dirname, '../client/client.js') });
 var customOptionList = [
     {
         useExistChunk: false,
@@ -63,10 +63,10 @@ var customOptionList = [
     },
 ];
 var serverConfig = function (port, environment, host) {
-    var serverEntryPoint = __assign(__assign({}, entries_1["default"](pages)), { app: path_1["default"].join(__dirname, port ? '../server/server.js?port=' + port : '../server/server.js') });
+    var serverEntryPoint = __assign(__assign({}, entries_1.default(pages)), { app: path_1.default.join(__dirname, port ? '../server/server.js?port=' + port : '../server/server.js') });
     return ({
         optimization: {
-            nodeEnv: false
+            nodeEnv: false,
         },
         name: 'server',
         mode: environment,
@@ -84,10 +84,10 @@ var serverConfig = function (port, environment, host) {
         },
         resolve: __assign({}, resolve),
         externals: [
-            webpack_node_externals_1["default"]({
+            webpack_node_externals_1.default({
                 // we still want imported css from external files to be bundled otherwise 3rd party packages
                 // which require us to include their own css would not work properly
-                whitelist: /\.css$/
+                whitelist: /\.css$/,
             }),
         ],
         module: {
@@ -95,23 +95,23 @@ var serverConfig = function (port, environment, host) {
                     test: /\.(js|jsx)$/,
                     loader: 'babel-loader',
                     options: require('./babel.config.js'),
-                    exclude: /node_modules/
-                }, __assign({}, config_1.Loader.cssServerLoader), __assign(__assign({}, config_1.Loader.urlServerLoader), { options: __assign(__assign({}, config_1.Loader.urlServerLoader.options), { publicPath: host }) }), __assign({}, config_1.Loader.fontFamilyServerLoader),]
+                    exclude: /node_modules/,
+                }, __assign({}, config_1.Loader.cssServerLoader), __assign(__assign({}, config_1.Loader.urlServerLoader), { options: __assign(__assign({}, config_1.Loader.urlServerLoader.options), { publicPath: host }) }), __assign({}, config_1.Loader.fontFamilyServerLoader),],
         },
         plugins: [
             // new PagesManifestPlugin('server'),
-            new import_1["default"](),
+            new import_1.default(),
             // new Html(),
             new Dotenv({
                 path: "./.env",
                 safe: true,
                 systemvars: true,
                 silent: true,
-                defaults: false
+                defaults: false,
             }),
-            new webpack_1["default"].DefinePlugin({
+            new webpack_1.default.DefinePlugin({
                 __SERVER__: 'true',
-                __BROWSER__: 'false'
+                __BROWSER__: 'false',
             }),
         ],
         stats: {
@@ -127,8 +127,8 @@ var serverConfig = function (port, environment, host) {
             performance: false,
             reasons: false,
             timings: true,
-            version: false
-        }
+            version: false,
+        },
     });
 };
 exports.serverConfig = serverConfig;
@@ -147,20 +147,20 @@ var clientConfig = function (environment) {
                     defaultVendors: {
                         test: /[\\/]node_modules[\\/]/,
                         priority: -10,
-                        reuseExistingChunk: true
+                        reuseExistingChunk: true,
                     },
-                    "default": {
+                    default: {
                         minChunks: 2,
                         priority: -20,
-                        reuseExistingChunk: true
-                    }
-                }
+                        reuseExistingChunk: true,
+                    },
+                },
             },
             minimizer: [
                 // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
                 // `...`
                 new CssMinimizerPlugin(),
-            ]
+            ],
         },
         name: 'client',
         target: 'web',
@@ -170,7 +170,7 @@ var clientConfig = function (environment) {
             filename: 'client/js/[name].js',
             path: resolveAbsolutePath('build'),
             publicPath: "/",
-            chunkFilename: 'client/js/chunk/[name].js'
+            chunkFilename: 'client/js/chunk/[name].js',
         },
         resolve: __assign({}, resolve),
         module: {
@@ -179,40 +179,40 @@ var clientConfig = function (environment) {
                     test: /\.(js|jsx)$/,
                     exclude: /node_modules/,
                     loader: 'babel-loader',
-                    options: require('./babel.config.js')
+                    options: require('./babel.config.js'),
                 },
                 {
                     test: /\.(ts|tsx)$/,
                     use: 'ts-loader',
-                    exclude: /node_modules/
+                    exclude: /node_modules/,
                 },
                 __assign({}, config_1.Loader.cssClientLoader),
                 __assign({}, config_1.Loader.cssModuleLoaderClient),
                 __assign({}, config_1.Loader.urlClientLoader),
                 __assign({}, config_1.Loader.fontFamilyClientLoader)
-            ]
+            ],
         },
         plugins: [
             // new PagesManifestPlugin('client'),
-            new mini_css_extract_plugin_1["default"]({
+            new mini_css_extract_plugin_1.default({
                 filename: 'assets/css/[name].css',
-                chunkFilename: 'assets/css/[name].css'
+                chunkFilename: 'assets/css/[name].css',
             }),
             new ManifestPlugin({
                 fileName: 'assets/manifest.json'
             }),
-            new nameChunk_1["default"](),
+            new nameChunk_1.default(),
             // ChunkSplit(customOptionList),
             new Dotenv({
                 path: "./.env",
                 safe: true,
                 systemvars: true,
                 silent: true,
-                defaults: false
+                defaults: false,
             }),
-            new webpack_1["default"].DefinePlugin({
+            new webpack_1.default.DefinePlugin({
                 __SERVER__: 'false',
-                __BROWSER__: 'true'
+                __BROWSER__: 'true',
             }),
         ],
         node: {
@@ -222,7 +222,7 @@ var clientConfig = function (environment) {
             fs: 'empty',
             net: 'empty',
             tls: 'empty',
-            child_process: 'empty'
+            child_process: 'empty',
         },
         devtool: 'source-maps',
         stats: {
@@ -236,8 +236,8 @@ var clientConfig = function (environment) {
             modules: false,
             reasons: false,
             timings: true,
-            version: false
-        }
+            version: false,
+        },
     };
 };
 exports.clientConfig = clientConfig;

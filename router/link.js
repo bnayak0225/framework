@@ -29,20 +29,20 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.Link = void 0;
 var react_1 = __importStar(require("react"));
 var context_1 = require("./context");
 var Link = react_1.memo(function (props) {
     var to = props.to, onClick = props.onClick, children = props.children;
-    var push = react_1["default"].useContext(context_1.RouterContext).push;
+    var push = react_1.default.useContext(context_1.RouterContext).push;
     var handleClick = function (e) {
         e.preventDefault();
         if (typeof (window) !== "undefined") {
             push(to);
         }
     };
-    return (react_1["default"].createElement("span", __assign({}, props, { onClick: handleClick }),
-        react_1["default"].createElement("a", { href: props.to, onClick: function (e) { return e.preventDefault(); } }, children)));
+    return (react_1.default.createElement("span", __assign({}, props, { onClick: handleClick }),
+        react_1.default.createElement("a", { href: props.to, onClick: function (e) { return e.preventDefault(); } }, children)));
 });
 exports.Link = Link;

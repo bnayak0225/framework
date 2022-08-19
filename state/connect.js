@@ -32,7 +32,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.Connect = void 0;
 var react_1 = __importStar(require("react"));
 var useStateContext_1 = require("./useStateContext");
@@ -45,13 +45,14 @@ var Connect = function (getState, setState) {
             var store = function () {
                 var state = context.state, dispatch = context.dispatch;
                 try {
+                    console.log("00000--", serverProvider_1.default.getInitialValue);
                     if (!window.client) {
-                        state = __assign(__assign({}, serverProvider_1["default"].GetTotalCount()), state);
+                        state = __assign(__assign({}, serverProvider_1.default.initialValue), state);
                     }
                 }
                 catch (e) {
                 }
-                console.log(state);
+                console.log("---se", state);
                 var getState = function () {
                     return state;
                 };
@@ -65,7 +66,7 @@ var Connect = function (getState, setState) {
             var dispatch = Store.dispatch;
             var stateToProps = getState(state);
             var statePush = setState(dispatch);
-            return (react_1["default"].createElement(WrappedComponent, __assign({}, stateToProps, statePush, props, Store)));
+            return (react_1.default.createElement(WrappedComponent, __assign({}, stateToProps, statePush, props, Store)));
         });
     };
 };

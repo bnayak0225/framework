@@ -51,7 +51,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var client_1 = require("react-dom/client");
 var dynamicImport_1 = __importDefault(require("../lib/dynamicImport"));
@@ -66,7 +66,7 @@ if (module.hot) {
     module.hot.accept();
 }
 var options = {
-    page: ''
+    page: '',
 };
 var setPageOption = function (pageOption) {
     options.page = pageOption.page;
@@ -93,17 +93,17 @@ var App = /** @class */ (function (_super) {
     App.prototype.render = function () {
         var _a = this.state, hasError = _a.hasError, error = _a.error;
         if (hasError) {
-            return (react_1["default"].createElement(errorBoundary_1["default"], { hasError: hasError, error: error }));
+            return (react_1.default.createElement(errorBoundary_1.default, { hasError: hasError, error: error }));
         }
-        return (react_1["default"].createElement(react_1["default"].Fragment, null,
-            react_1["default"].createElement(Router_1.RouterContextProvider, null,
-                react_1["default"].createElement(Provider_1["default"], { initialState: window.__INITIAL__DATA__ ? window.__INITIAL__DATA__.initialServerState || {} : {} },
-                    react_1["default"].createElement(switch_1["default"], null, this.props.routing.map(function (route, i) {
+        return (react_1.default.createElement(react_1.default.Fragment, null,
+            react_1.default.createElement(Router_1.RouterContextProvider, null,
+                react_1.default.createElement(Provider_1.default, { initialState: window.__INITIAL__DATA__ ? window.__INITIAL__DATA__.initialServerState || {} : {} },
+                    react_1.default.createElement(switch_1.default, null, this.props.routing.map(function (route, i) {
                         return (route);
                     }))))));
     };
     return App;
-}(react_1["default"].PureComponent));
+}(react_1.default.PureComponent));
 ;
 // App = hot(module)(App)
 var doRender = function (routing) { return __awaiter(void 0, void 0, void 0, function () {
@@ -111,7 +111,7 @@ var doRender = function (routing) { return __awaiter(void 0, void 0, void 0, fun
     return __generator(this, function (_a) {
         try {
             container = document.querySelector('#root');
-            client_1.createRoot(container).render(react_1["default"].createElement(App, { routing: routing }));
+            client_1.createRoot(container).render(react_1.default.createElement(App, { routing: routing }));
         }
         catch (e) {
         }
@@ -133,19 +133,19 @@ var doRender = function (routing) { return __awaiter(void 0, void 0, void 0, fun
                 routing = window.__INITIAL__DATA__.routing;
                 route = [];
                 if (routing.length === 0) {
-                    route.push(react_1["default"].createElement(Route_1.Route, { path: "/*", component: _404_1["default"], props: { value: "" } }));
+                    route.push(react_1.default.createElement(Route_1.Route, { path: "/*", component: _404_1.default, props: { value: "" } }));
                 }
                 i = 0;
                 _a.label = 1;
             case 1:
                 if (!(i < routing.length)) return [3 /*break*/, 4];
-                return [4 /*yield*/, dynamicImport_1["default"](routing[i].file)];
+                return [4 /*yield*/, dynamicImport_1.default(routing[i].file)];
             case 2:
                 Component = _a.sent();
-                route.push(react_1["default"].createElement(Route_1.Route, { key: i, path: routing[i].url, component: Component, props: { value: "" } }));
+                route.push(react_1.default.createElement(Route_1.Route, { key: i, path: routing[i].url, component: Component, props: { value: "" } }));
                 check404 = routing.filter(function (route) { return route.file.indexOf("404.") > -1; })[0];
                 if (!check404 && i === routing.length - 1) {
-                    route.push(react_1["default"].createElement(Route_1.Route, { key: i, path: "/*", component: _404_1["default"], props: { value: "" } }));
+                    route.push(react_1.default.createElement(Route_1.Route, { key: i, path: "/*", component: _404_1.default, props: { value: "" } }));
                 }
                 _a.label = 3;
             case 3:

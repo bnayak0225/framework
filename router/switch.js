@@ -37,7 +37,7 @@ var __read = (this && this.__read) || function (o, n) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var context_1 = require("./context");
 var validatePath_1 = __importDefault(require("./validatePath"));
@@ -45,8 +45,8 @@ var Switch = react_1.memo(function (_a) {
     var children = _a.children;
     var _b = __read(react_1.useState(), 2), component = _b[0], setComponent = _b[1];
     var routerContext = context_1.RouterContext;
-    var url = react_1["default"].useContext(routerContext).pathname;
-    var pathValidate = react_1.useCallback(function (path, url) { return validatePath_1["default"](path, url); }, [url]);
+    var url = react_1.default.useContext(routerContext).pathname;
+    var pathValidate = react_1.useCallback(function (path, url) { return validatePath_1.default(path, url); }, [url]);
     react_1.useEffect(function () {
         for (var i = 0; i < children.length; i++) {
             if (children[i].props && children[i].props.path) {
@@ -58,6 +58,6 @@ var Switch = react_1.memo(function (_a) {
             }
         }
     }, [url]);
-    return (react_1["default"].createElement(react_1["default"].Fragment, null, component));
+    return (react_1.default.createElement(react_1.default.Fragment, null, component));
 });
-exports["default"] = Switch;
+exports.default = Switch;

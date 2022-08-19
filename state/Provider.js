@@ -48,12 +48,12 @@ var __read = (this && this.__read) || function (o, n) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var context_1 = __importDefault(require("./context"));
 var Provider = react_1.memo(function (_a) {
     var initialState = _a.initialState, children = _a.children;
-    var Context = context_1["default"];
+    var Context = context_1.default;
     // let state=initialState
     var _b = __read(react_1.useState({}), 2), state = _b[0], setState = _b[1];
     var dispatch = function (props) {
@@ -63,6 +63,6 @@ var Provider = react_1.memo(function (_a) {
             return (__assign(__assign({}, prevState), (_a = {}, _a[key] = props[key], _a)));
         });
     };
-    return (react_1["default"].createElement(Context.Provider, { value: { state: __assign(__assign({}, state), initialState), dispatch: function (props) { return dispatch(props); } } }, children));
+    return (react_1.default.createElement(Context.Provider, { value: { state: __assign(__assign({}, state), initialState), dispatch: function (props) { return dispatch(props); } } }, children));
 });
-exports["default"] = Provider;
+exports.default = Provider;

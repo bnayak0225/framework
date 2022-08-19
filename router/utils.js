@@ -2,7 +2,7 @@
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.locationToRoute = void 0;
 var querystringify_1 = __importDefault(require("querystringify"));
 function locationToRoute(location) {
@@ -10,7 +10,7 @@ function locationToRoute(location) {
     return {
         path: location.pathname,
         hash: location.hash,
-        query: querystringify_1["default"].parse(location.search)
+        query: querystringify_1.default.parse(location.search),
     };
 }
 exports.locationToRoute = locationToRoute;

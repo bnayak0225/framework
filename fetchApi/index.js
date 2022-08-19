@@ -68,7 +68,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.fetchAsyncApi = void 0;
 var react_1 = __importStar(require("react"));
 var node_fetch_1 = __importDefault(require("node-fetch"));
@@ -80,7 +80,7 @@ var fetchAsyncApi = function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 3, , 4]);
-                    return [4 /*yield*/, node_fetch_1["default"](url, {
+                    return [4 /*yield*/, node_fetch_1.default(url, {
                             "method": method,
                             "headers": headers
                         })];
@@ -116,7 +116,7 @@ var FetchSSRApi = function () {
             }
         };
         var ClientToServer = react_1.memo(function (props) {
-            return (react_1["default"].createElement(WrappedComponent, __assign({}, props, { fetchApi: function (data) { return fetchApi(data); } })));
+            return (react_1.default.createElement(WrappedComponent, __assign({}, props, { fetchApi: function (data) { return fetchApi(data); } })));
         });
         FetchSSRApi.getState = function () { return __awaiter(void 0, void 0, void 0, function () {
             var apiArray, allResolvedApi;
@@ -152,4 +152,4 @@ var FetchSSRApi = function () {
         return ClientToServer;
     };
 };
-exports["default"] = FetchSSRApi;
+exports.default = FetchSSRApi;

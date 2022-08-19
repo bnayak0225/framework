@@ -29,7 +29,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var useComponentWillMount = function (func) {
     var willMount = react_1.useRef(true);
@@ -59,7 +59,7 @@ var withClientToServer = function (propsToState, onChange) {
             react_1.useEffect(function () {
                 changeState(props);
             }, [props]);
-            return (react_1["default"].createElement(WrappedComponent, __assign({}, props)));
+            return (react_1.default.createElement(WrappedComponent, __assign({}, props)));
         });
         ClientToServer.canUseDOM = canUseDOM;
         ClientToServer.getState = function () {
@@ -69,4 +69,4 @@ var withClientToServer = function (propsToState, onChange) {
         return ClientToServer;
     };
 };
-exports["default"] = withClientToServer;
+exports.default = withClientToServer;

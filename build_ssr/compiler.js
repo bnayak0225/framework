@@ -33,7 +33,7 @@ var __spread = (this && this.__spread) || function () {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var webpack_1 = __importDefault(require("webpack"));
 var webpack_config_1 = require("../webpackConfig/webpack.config");
 var write_file_webpack_plugin_1 = __importDefault(require("write-file-webpack-plugin"));
@@ -41,14 +41,14 @@ var compilerStart = function (port, host) {
     console.log("Creating build, Please wait...");
     var hostUrl = host ? host : port ? "http://localhost:" + port : 'http://localhost:9000';
     var serverWebpackConfig = __assign(__assign({}, webpack_config_1.serverConfig(port, "production", hostUrl)), { mode: 'production', performance: {
-            hints: false
+            hints: false,
         } });
     var clientWebpackConfig = __assign(__assign({}, webpack_config_1.clientConfig("production")), { plugins: __spread(webpack_config_1.clientConfig("production").plugins, [
-            new write_file_webpack_plugin_1["default"](),
+            new write_file_webpack_plugin_1.default(),
         ]), mode: 'production', performance: {
-            hints: false
+            hints: false,
         } });
-    var clientCompiler = webpack_1["default"]([clientWebpackConfig, serverWebpackConfig]);
+    var clientCompiler = webpack_1.default([clientWebpackConfig, serverWebpackConfig]);
     clientCompiler.run(function (err, stats) {
         console.log(stats.toString({
             colors: true,
@@ -59,9 +59,9 @@ var compilerStart = function (port, host) {
             hash: false,
             modules: false,
             reasons: false,
-            version: false
+            version: false,
         }));
         console.log("\x1b[31m\x1b[5m", "Build ready. Ready for deploy!", '\x1b[0m');
     });
 };
-exports["default"] = compilerStart;
+exports.default = compilerStart;
