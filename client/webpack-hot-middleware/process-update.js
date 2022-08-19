@@ -28,7 +28,7 @@ var applyOptions = {
             ' (' +
             data.type +
             ')');
-    }
+    },
 };
 function upToDate(hash) {
     if (hash)
@@ -69,7 +69,7 @@ module.exports = function (hash, moduleMap, options) {
                     console.log(outdatedModules);
                     applyCallback(null, outdatedModules);
                 });
-                applyResult["catch"](applyCallback);
+                applyResult.catch(applyCallback);
             }
         };
         var result = module.hot.check(false, cb);
@@ -78,7 +78,7 @@ module.exports = function (hash, moduleMap, options) {
             result.then(function (updatedModules) {
                 cb(null, updatedModules);
             });
-            result["catch"](cb);
+            result.catch(cb);
         }
     }
     function logUpdates(updatedModules, renewedModules) {

@@ -91,13 +91,13 @@ function createEventStream(heartbeat) {
                 'Cache-Control': 'no-cache, no-transform',
                 // While behind nginx, event stream should not be buffered:
                 // http://nginx.org/docs/http/ngx_http_proxy_module.html#proxy_buffering
-                'X-Accel-Buffering': 'no'
+                'X-Accel-Buffering': 'no',
             };
             var isHttp1 = !(parseInt(req.httpVersion) >= 2);
             if (isHttp1) {
                 req.socket.setKeepAlive(true);
                 Object.assign(headers, {
-                    Connection: 'keep-alive'
+                    Connection: 'keep-alive',
                 });
             }
             res.writeHead(200, headers);
@@ -114,7 +114,7 @@ function createEventStream(heartbeat) {
             everyClient(function (client) {
                 client.write('data: ' + JSON.stringify(payload) + '\n\n');
             });
-        }
+        },
     };
 }
 function publishStats(action, statsResult, eventStream, log) {
@@ -124,7 +124,7 @@ function publishStats(action, statsResult, eventStream, log) {
         children: true,
         modules: true,
         timings: true,
-        hash: true
+        hash: true,
     });
     // For multi-compiler, stats will be an object with a 'children' array of stats
     var bundles = extractBundles(stats);
@@ -149,7 +149,7 @@ function publishStats(action, statsResult, eventStream, log) {
             hash: stats.hash,
             warnings: stats.warnings || [],
             errors: stats.errors || [],
-            modules: buildModuleMap(stats.modules)
+            modules: buildModuleMap(stats.modules),
         });
     });
 }

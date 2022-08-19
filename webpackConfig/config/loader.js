@@ -2,27 +2,27 @@
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var mini_css_extract_plugin_1 = __importDefault(require("mini-css-extract-plugin"));
 var Loader = {
     jsLoader: {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
     },
     cssModuleLoaderClient: {
         test: /\.module\.css$/,
         use: [
             require.resolve('css-hot-loader'),
-            mini_css_extract_plugin_1["default"].loader,
+            mini_css_extract_plugin_1.default.loader,
             {
                 loader: require.resolve('css-loader'),
                 options: {
                     localsConvention: 'camelCase',
                     modules: { localIdentName: '[hash:base64:8]' },
                     importLoaders: 1,
-                    sourceMap: false
-                }
+                    sourceMap: false,
+                },
             },
             {
                 loader: require.resolve('postcss-loader'),
@@ -33,20 +33,20 @@ var Loader = {
                         require('autoprefixer')(),
                         require('postcss-custom-properties')(),
                         require('postcss-assets')({
-                            basePath: './assets'
+                            basePath: './assets',
                         }),
                     ],
-                    sourceMap: false
-                }
+                    sourceMap: false,
+                },
             },
-        ]
+        ],
     },
     cssClientLoader: {
         test: /\.s?[ac]ss$/i,
         exclude: /\.module\.css$/,
         use: [
             require.resolve('css-hot-loader'),
-            mini_css_extract_plugin_1["default"].loader,
+            mini_css_extract_plugin_1.default.loader,
             require.resolve('css-loader'),
             {
                 loader: require.resolve('postcss-loader'),
@@ -57,14 +57,14 @@ var Loader = {
                         require('autoprefixer')(),
                         require('postcss-custom-properties')(),
                         require('postcss-assets')({
-                            basePath: './assets'
+                            basePath: './assets',
                         }),
                     ],
-                    sourceMap: false
-                }
+                    sourceMap: false,
+                },
             },
             require.resolve('sass-loader'),
-        ]
+        ],
     },
     cssServerLoader: {
         test: /\.s?[ac]ss$/i,
@@ -72,7 +72,7 @@ var Loader = {
             // require.resolve('css-hot-loader'),
             require.resolve('css-loader'),
             require.resolve('sass-loader'),
-        ]
+        ],
     },
     urlServerLoader: {
         test: /\.(png|jpe?g|gif|svg)$/,
@@ -81,8 +81,8 @@ var Loader = {
             limit: 2048,
             publicPath: "/",
             name: 'image/[name].[hash:8].[ext]',
-            emitFile: false
-        }
+            emitFile: false,
+        },
     },
     urlClientLoader: {
         test: /\.(png|jpe?g|gif|svg)$/,
@@ -90,8 +90,8 @@ var Loader = {
         options: {
             publicPath: "/",
             outputPath: 'assets',
-            name: 'image/[name].[hash:8].[ext]'
-        }
+            name: 'image/[name].[hash:8].[ext]',
+        },
     },
     fontFamilyClientLoader: {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
@@ -120,4 +120,4 @@ var Loader = {
         ]
     }
 };
-exports["default"] = Loader;
+exports.default = Loader;
