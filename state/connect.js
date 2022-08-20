@@ -25,7 +25,6 @@ var Connect = function (getState, setState) {
             console.log("connect", initialValue);
             var store = function () {
                 var state = context.state, dispatch = context.dispatch;
-                console.log("connect-state", state);
                 if (!window.client) {
                     state = __assign(__assign({}, initialValue), state);
                 }
@@ -41,8 +40,7 @@ var Connect = function (getState, setState) {
             var state = Store.getState();
             var dispatch = Store.dispatch;
             var stateToProps = getState(state);
-            var statePush = setState(dispatch);
-            // console.log(serverSideProvider.getInitialValue);
+            var statePush = function (props) { return dispatch(props); };
             return (react_1.default.createElement(WrappedComponent, __assign({}, stateToProps, statePush, props, Store)));
         };
     };
