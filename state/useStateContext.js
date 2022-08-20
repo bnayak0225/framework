@@ -6,9 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.useStateContext = void 0;
 var react_1 = require("react");
 var context_1 = __importDefault(require("./context"));
+var ServerProvider_1 = __importDefault(require("../server/ServerProvider"));
 function useStateContext() {
+    console.log("connect", ServerProvider_1.default.getInitialValue);
     var contextValue = react_1.useContext(context_1.default);
     // console.log(contextValue);
-    return contextValue;
+    return { context: contextValue, initialValue: ServerProvider_1.default.getInitialValue };
 }
 exports.useStateContext = useStateContext;

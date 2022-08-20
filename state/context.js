@@ -4,6 +4,5 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
-var ServerProvider_1 = __importDefault(require("../server/ServerProvider"));
-var StoreContext = react_1.default.createContext({ state: ServerProvider_1.default.getInitialValue, dispatch: function () { } });
+var StoreContext = react_1.default.createContext({ state: {}, dispatch: function () { } });
 exports.default = StoreContext;

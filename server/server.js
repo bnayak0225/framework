@@ -64,7 +64,6 @@ var fs_1 = __importDefault(require("fs"));
 var jsdom_1 = require("jsdom");
 var errorHandle_1 = __importDefault(require("./errorHandle"));
 var express_manifest_helpers_1 = __importDefault(require("express-manifest-helpers"));
-var ServerProvider_1 = __importDefault(require("./ServerProvider"));
 var port = constant_1.DEFAULT_PORT;
 if (__resourceQuery) {
     var querystring = require('querystring');
@@ -202,8 +201,6 @@ var ignoreFavicon = function (req, res, next) {
                                 return [4 /*yield*/, component.getInitialProps({ params: params })];
                             case 10:
                                 initialState = (_b.sent()) || {};
-                                console.log(initialState);
-                                ServerProvider_1.default.setInitialValue = initialState;
                                 return [3 /*break*/, 12];
                             case 11:
                                 e_2 = _b.sent();
