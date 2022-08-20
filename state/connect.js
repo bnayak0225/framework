@@ -39,19 +39,13 @@ var useStateContext_1 = require("./useStateContext");
 var serverProvider_1 = __importDefault(require("../server/serverProvider"));
 var Connect = function (getState, setState) {
     // let getState
+    console.log("connect", serverProvider_1.default.getInitialValue);
     return function (WrappedComponent) {
         return react_1.memo(function (props) {
             var context = useStateContext_1.useStateContext();
             var store = function () {
                 var state = context.state, dispatch = context.dispatch;
-                try {
-                    if (!window.client) {
-                        console.log("connect", serverProvider_1.default.getInitialValue);
-                        state = __assign(__assign({}, serverProvider_1.default.getInitialValue), state);
-                    }
-                }
-                catch (e) {
-                }
+                console.log("connect-state", state);
                 var getState = function () {
                     return state;
                 };
@@ -65,6 +59,7 @@ var Connect = function (getState, setState) {
             var dispatch = Store.dispatch;
             var stateToProps = getState(state);
             var statePush = setState(dispatch);
+            // console.log(serverSideProvider.getInitialValue);
             return (react_1.default.createElement(WrappedComponent, __assign({}, stateToProps, statePush, props, Store)));
         });
     };
