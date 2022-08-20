@@ -52,10 +52,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 var context_1 = __importDefault(require("./context"));
 var Provider = react_1.memo(function (_a) {
-    var initialState = _a.initialState, children = _a.children;
+    var _b = _a.initialState, initialState = _b === void 0 ? {} : _b, children = _a.children;
     var Context = context_1.default;
     // let state=initialState
-    var _b = __read(react_1.useState({}), 2), state = _b[0], setState = _b[1];
+    var _c = __read(react_1.useState({}), 2), state = _c[0], setState = _c[1];
     var dispatch = function (props) {
         var key = Object.keys(props);
         setState(function (prevState) {

@@ -1,6 +1,9 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fetchAsyncApi = exports.Head = exports.store = exports.Connect = exports.withRouter = exports.Link = exports.Router = void 0;
+exports.serverSideProvider = exports.fetchAsyncApi = exports.Head = exports.store = exports.Connect = exports.withRouter = exports.Link = exports.Router = void 0;
 var router_1 = require("./router");
 Object.defineProperty(exports, "Router", { enumerable: true, get: function () { return router_1.Router; } });
 Object.defineProperty(exports, "Link", { enumerable: true, get: function () { return router_1.Link; } });
@@ -13,3 +16,5 @@ var connect_1 = require("./state/connect");
 Object.defineProperty(exports, "Connect", { enumerable: true, get: function () { return connect_1.Connect; } });
 var store_1 = require("./state/store");
 Object.defineProperty(exports, "store", { enumerable: true, get: function () { return store_1.store; } });
+var ServerProvider_1 = __importDefault(require("./server/ServerProvider"));
+exports.serverSideProvider = ServerProvider_1.default;

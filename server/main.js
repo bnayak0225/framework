@@ -18,18 +18,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __importStar(require("react"));
 var reactState_1 = require("../state/reactState");
-var ServerProvider_1 = __importDefault(require("./ServerProvider"));
 var AppServer = function (_a) {
-    var page = _a.page, initialProps = _a.initialProps;
+    var page = _a.page, initialState = _a.initialState;
     var Page = page;
-    ServerProvider_1.default.setInitialValue = initialProps;
-    return (React.createElement(reactState_1.Provider, { initialState: initialProps },
+    console.log("provider", initialState);
+    return (React.createElement(reactState_1.Provider, { initialState: initialState },
         React.createElement(Page, null)));
 };
 exports.default = AppServer;

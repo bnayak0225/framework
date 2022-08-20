@@ -1,7 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var serverSideProvider = {
-    initialValue: {}
+    initialValue: {},
+    getInitialValue: {},
+    setInitialValue: {}
 };
 Object.defineProperty(serverSideProvider, 'getInitialValue', {
     get: function () {

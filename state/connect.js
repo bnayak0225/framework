@@ -45,14 +45,13 @@ var Connect = function (getState, setState) {
             var store = function () {
                 var state = context.state, dispatch = context.dispatch;
                 try {
-                    console.log("00000--", serverProvider_1.default.getInitialValue);
                     if (!window.client) {
-                        state = __assign(__assign({}, serverProvider_1.default.initialValue), state);
+                        console.log("connect", serverProvider_1.default.getInitialValue);
+                        state = __assign(__assign({}, serverProvider_1.default.getInitialValue), state);
                     }
                 }
                 catch (e) {
                 }
-                console.log("---se", state);
                 var getState = function () {
                     return state;
                 };

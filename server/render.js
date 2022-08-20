@@ -55,11 +55,11 @@ var react_1 = __importDefault(require("react"));
 var server_1 = require("react-dom/server");
 var main_1 = __importDefault(require("./main"));
 var Head_1 = require("../Head");
-var HeaderHtml = function (headerData, routing, cssFileArray, jsArray, host, requestDetail, initialAsyncProps) {
+var ServerProvider_1 = __importDefault(require("./ServerProvider"));
+var HeaderHtml = function (headerData, routing, cssFileArray, jsArray, host, requestDetail, initialState) {
     var e_1, _a;
     if (cssFileArray === void 0) { cssFileArray = []; }
     if (jsArray === void 0) { jsArray = []; }
-    if (initialAsyncProps === void 0) { initialAsyncProps = {}; }
     // cssFileArray.map(css=>{
     //     return <link rel={"stylesheet"} type="text/css" href={css}></link>
     // })
@@ -81,20 +81,21 @@ var HeaderHtml = function (headerData, routing, cssFileArray, jsArray, host, req
     // for(const js of jsArray){
     //     jsFile = jsFile+`<script src="${host}/${js.replace("/client/", "")}" defer></script>`
     // }
+    console.log("render", ServerProvider_1.default.getInitialValue);
     return ("<meta charset=\"utf-8\">" +
         "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">" +
         "<meta name=\"HandheldFriendly\" content=\"true\"> " +
         "<meta name=\"MobileOptimized\" content=\"320\">" +
         "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0\">" +
         ("" + headerData) +
-        ("<script>window.__INITIAL__DATA__ = " + JSON.stringify({ initialServerState: initialAsyncProps, routing: routing }) + "</script>") +
+        ("<script>window.__INITIAL__DATA__ = " + JSON.stringify({ initialServerState: initialState, routing: routing }) + "</script>") +
         ("<script>window.client = " + true + "</script>") +
         ("<script>window.location.requestDetail = " + (requestDetail ? JSON.stringify(requestDetail) : null) + "</script>") +
         ("" + cssFile));
 };
-var TopHtmlContainer = function (splasHtml, headerData, routing, cssArray, jsArray, host, requestDetail, initialAsyncProps) {
+var TopHtmlContainer = function (splasHtml, headerData, routing, cssArray, jsArray, host, requestDetail, initialState) {
     if (cssArray === void 0) { cssArray = []; }
-    var headHtml = HeaderHtml(headerData, routing, cssArray, jsArray, host, requestDetail, initialAsyncProps);
+    var headHtml = HeaderHtml(headerData, routing, cssArray, jsArray, host, requestDetail, initialState);
     return ("<html>" +
         ("<head>" + headHtml + "</head>") +
         "<body>" +
@@ -123,24 +124,29 @@ var BottomHtmlContainer = function (jsArray, host) {
         "</body>" +
         "</html>");
 };
-var renderHtml = function (res, component, SplashScreenComponent, routing, assets, host, requestDetail, params, initialAsyncProps) { return __awaiter(void 0, void 0, void 0, function () {
+var renderHtml = function (res, component, SplashScreenComponent, routing, assets, host, requestDetail, params, initialState) { return __awaiter(void 0, void 0, void 0, function () {
     var splashScreen, jsArray, cssArray, App, headTag, topHtml, botHtml, mid, html;
     return __generator(this, function (_a) {
-        if (SplashScreenComponent) {
-            splashScreen = server_1.renderToString(react_1.default.createElement(SplashScreenComponent, null));
+        switch (_a.label) {
+            case 0:
+                if (SplashScreenComponent) {
+                    splashScreen = server_1.renderToString(react_1.default.createElement(SplashScreenComponent, null));
+                }
+                jsArray = assets.getJavascripts();
+                cssArray = assets.getStylesheetSources();
+                App = component;
+                headTag = Head_1.Head.getState();
+                topHtml = TopHtmlContainer(splashScreen, headTag, routing, cssArray, jsArray, host, requestDetail, initialState);
+                botHtml = BottomHtmlContainer(jsArray, host);
+                return [4 /*yield*/, server_1.renderToString(react_1.default.createElement(main_1.default, { page: App, initialState: initialState }))];
+            case 1:
+                mid = _a.sent();
+                html = topHtml + mid + botHtml;
+                res.contentType('text/html');
+                res.status(200);
+                res.send(html);
+                return [2 /*return*/];
         }
-        jsArray = assets.getJavascripts();
-        cssArray = assets.getStylesheetSources();
-        App = component;
-        headTag = Head_1.Head.getState();
-        topHtml = TopHtmlContainer(splashScreen, headTag, routing, cssArray, jsArray, host, requestDetail, initialAsyncProps);
-        botHtml = BottomHtmlContainer(jsArray, host);
-        mid = server_1.renderToString(react_1.default.createElement(main_1.default, { page: App, initialProps: initialAsyncProps }));
-        html = topHtml + mid + botHtml;
-        res.contentType('text/html');
-        res.status(200);
-        res.send(html);
-        return [2 /*return*/];
     });
 }); };
 exports.renderHtml = renderHtml;
