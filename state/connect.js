@@ -21,13 +21,9 @@ var Connect = function (getState, setState) {
     // let getState
     return function (WrappedComponent) {
         return function (props) {
-            var _a = useStateContext_1.useStateContext(), context = _a.context, initialValue = _a.initialValue;
-            console.log("connect", initialValue);
+            var context = useStateContext_1.useStateContext();
             var store = function () {
                 var state = context.state, dispatch = context.dispatch;
-                if (!window.client) {
-                    state = __assign(__assign({}, initialValue), state);
-                }
                 var getState = function () {
                     return state;
                 };

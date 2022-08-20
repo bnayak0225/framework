@@ -24,7 +24,7 @@ var reactState_1 = require("../state/reactState");
 var AppServer = function (_a) {
     var page = _a.page, initialState = _a.initialState;
     var Page = page;
-    return (React.createElement(reactState_1.Provider, { initialState: initialState },
-        React.createElement(Page, null)));
+    return (React.createElement(reactState_1.Provider, null,
+        React.createElement(Page, { initialState: initialState })));
 };
 exports.default = AppServer;
